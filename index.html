@@ -7,18 +7,60 @@
     <title>NQSTV</title>
 </head>
 <body>
-    <header class="site-header">
-        <h1 class="logo">NQSTV</h1>
-        <nav class="site-nav">
-            <a href="/home">Home</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
-        </nav>
-    </header>
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="brand">
+    <img src="images\logonsqtv.png"
+         alt="NQSTV Logo"
+         style="width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.28);object-fit:cover;flex-shrink:0;">
 
-    <main class="hero">
-        <h2>Welcome to NQSTV</h2>
-        <p>Your space for simple, clean web content.</p>
-    </main>
+                <div class="brand-copy">
+                    <p class="brand-title"><span class="brand-accent">NQ</span>STV</p>
+                    <p class="brand-tagline">Design Construction Planning &amp; Consultancy Services</p>
+                </div>
+            </div>
+  
+
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="/home">Home</a>
+                <a href="/about">About us</a>
+                <a href="/services">Our Services</a>
+                <a href="/contact">Contact us</a>
+            </nav>
+
+            <div class="header-actions">
+                <form class="search-form" role="search">
+                    <span class="search-icon" aria-hidden="true"></span>
+                    <input type="search" name="q" placeholder="Search" aria-label="Search">
+                </form>
+
+                <button class="menu-button" type="button" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+        </header>
+
+        <main>
+    <section class="hero-panel" aria-label="Featured image"></section>
+
+    <div style="display: flex; gap: 0;">
+
+        <div style="flex: 1; padding: 50px 40px;">
+            <h2>Welcome to NQSTV</h2>
+            <p>Your trusted partner in design, construction, planning, and consultancy services. We are committed to delivering innovative solutions that meet your needs and exceed your expectations.</p>
+        
+        </div>
+
+        <aside style="width: 200px; padding: 30px 20px; border-left: 1px solid #ddd;">
+            <h3>Our Services</h3>
+            <p>more contents here</p>
+        </aside>
+
+    </div>
+</main>
+    </div>
 </body>
 </html>
