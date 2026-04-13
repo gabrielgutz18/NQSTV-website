@@ -1,3 +1,30 @@
+
+const menuButton = document.querySelector('.menu-button');
+const dropdownContent = document.querySelector('.dropdown-content');
+
+if (menuButton && dropdownContent) {
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownContent.classList.toggle('active');
+        console.log('Menu toggled. Active:', dropdownContent.classList.contains('active'));
+    });
+
+    
+    const dropdownLinks = dropdownContent.querySelectorAll('a');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            dropdownContent.classList.remove('active');
+        });
+    });
+
+   
+    document.addEventListener('click', (e) => {
+        if (!menuButton.contains(e.target) && !dropdownContent.contains(e.target)) {
+            dropdownContent.classList.remove('active');
+        }
+    });
+}
+
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const totalSlides = slides.length;
