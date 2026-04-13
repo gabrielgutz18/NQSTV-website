@@ -1,4 +1,3 @@
-// Carousel functionality - Shows multiple images at once
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const totalSlides = slides.length;
@@ -31,7 +30,7 @@ function updateCarousel() {
     console.log('Current slide index:', currentSlide, 'Display:', currentSlide + 1);
 }
 
-// Get buttons
+
 const nextBtn = document.querySelector('.carousel-next');
 const prevBtn = document.querySelector('.carousel-prev');
 
@@ -54,6 +53,6 @@ if (prevBtn) {
     });
 }
 
-// Initialize carousel
+
 updateCarousel();
 console.log('Carousel initialized');
