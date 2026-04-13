@@ -15,6 +15,7 @@
     --surface-strong: #efe4d6;
     --surface-border: rgba(67, 49, 28, 0.14);
     --shadow-soft: 0 18px 40px rgba(38, 28, 20, 0.12);
+    --header-offset: 76px;
 }
 
 * {
@@ -24,6 +25,7 @@
 html,
 body {
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 html {
@@ -48,16 +50,25 @@ body {
 
 main {
     display: block;
+    padding-top: var(--header-offset);
+    margin: 0;
 }
 
 .site-header {
+     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 18px;
     padding: 10px 22px;
     background: var(--header-bg);
-    border: 1px solid var(--header-border);
+    border: 0;  /* Make sure this is 0 */
+    border-bottom: none;  /* Add this explicitly */
     color: var(--text-light);
 }
 
@@ -252,20 +263,23 @@ main {
     position: relative;
 }
 
-.hero-panel {
-    min-height: clamp(280px, 42vw, 550px);
-    width: 100%;
+.first.section.backgroung-image {
+    min-height: clamp(360px, 52vw, 680px);
+    width: 100vw;
+    margin-top: -1px;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     background-color: var(--hero-fallback-b);
     background-image:
         linear-gradient(var(--hero-tint), var(--hero-tint)),
         var(--hero-image),
         linear-gradient(135deg, var(--hero-fallback-a), var(--hero-fallback-b));
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    border: 1px solid rgba(56, 49, 42, 0.8);
-    border-top: 0;
 }
+
+
 
 .content-section {
     padding: clamp(42px, 7vw, 84px) 20px;
@@ -280,6 +294,11 @@ main {
     background:
         linear-gradient(180deg, rgba(239, 234, 226, 0.96), rgba(247, 241, 232, 0.96));
     border-bottom: 1px solid var(--surface-border);
+}
+
+.training-section {
+    background:
+        linear-gradient(180deg, rgba(239, 234, 226, 0.96), rgba(247, 241, 232, 0.96));
 }
 
 .project-text {
@@ -506,6 +525,10 @@ main {
 }
 
 @media (max-width: 1024px) {
+    :root {
+        --header-offset: 132px;
+    }
+
     .site-header {
         grid-template-columns: 1fr;
         justify-items: start;
@@ -538,6 +561,10 @@ main {
 }
 
 @media (max-width: 640px) {
+    :root {
+        --header-offset: 148px;
+    }
+
     .site-header {
         gap: 16px;
         padding: 14px 16px;
@@ -571,9 +598,11 @@ main {
         max-width: none;
     }
 
-    .hero-panel {
-        min-height: 280px;
+    .first.section.backgroung-image {
+        min-height: 320px;
     }
+
+    
 
     .content-section {
         padding: 34px 16px;
