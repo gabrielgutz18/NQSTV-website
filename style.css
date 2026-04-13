@@ -875,7 +875,7 @@ main {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: clamp(28px, 5vw, 72px);
+    gap: clamp(16px, 2.6vw, 36px);
 }
 
 .training-left {
@@ -942,9 +942,12 @@ main {
 }
 
 .training-image {
-    flex: 0 0 min(340px, 32vw);
+    flex: 0 0 min(340px, 30vw);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: flex-start;
+    gap: 12px;
 }
 
 .training-image img {
@@ -957,6 +960,58 @@ main {
     box-shadow: 0 18px 42px rgba(31, 23, 17, 0.2);
     display: block;
     object-fit: cover;
+}
+
+.training-why {
+    position: relative;
+    min-height: 140px;
+    padding: 48px 14px 14px;
+    background: #1a1a1a;
+    border: 1px solid rgba(228, 138, 50, 0.3);
+    border-radius: 12px;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.training-why:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(228, 138, 50, 0.15);
+    border-color: var(--accent);
+}
+
+.training-why-icon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.training-why-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.training-why h4 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.training-why p {
+    margin: 0;
+    color: #ddd6ca;
+    font-size: 0.82rem;
+    line-height: 1.4;
 }
 
 @media (max-width: 1024px) {
