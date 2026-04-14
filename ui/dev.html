@@ -37,41 +37,67 @@
                         <span></span>
                         <span></span>
                         <span></span>
-                        
-               
                     </button>     
-                    
                     <div class="dropdown-content">
-                         <a href="ui/mv.html">Mission Vision</a>
-                         <a href="ui/team.html">Our Team</a>
-                         <a href="ui/projectinfo.html">Project Portfolio</a>
-                         <a href="ui/map.html">Map</a>
-                         <a href="ui/dev.html">Developers</a>
-                    </div>           
+                        <a href="ui/mv.html">Mission Vision</a>
+                        <a href="ui/team.html">Our Team</a>
+                        <a href="ui/projectinfo.html">Project Portfolio</a>
+                        <a href="ui/map.html">Map</a>
+                        <a href="ui/dev.html">Developers</a>
+                    </div>    
                 </div>
             </header>
 
             <main>
-                <section class = "developers-section">
-                    <div class = "section-shell developers-shell">
-                        <p class = "section-kicker">Developers</p>
-                        <h1>Developers</h1>
-                        <div class = "developers-content-space" aria-label = "Developers content placeholder">
-                            <h2>Meet Our Development Team</h2>
-                            <p class ="gab">Gabriel Luigi M. Gutierrez</p>
-                            <p class ="gabgit">Github: </p> 
-                            <a class ="githubg" href ="https://github.com/gabrielgutz18" target="_blank" rel="noopener noreferrer">gabrielgutz18</a>
-                            <p class ="gabemail">Email: </p> 
-                            <a class ="email" href="mailto: cpe.gutierrrez.gabrielluigi@gmail.com"> cpe.gutierrrez.gabrielluigi@gmail.com </a>
-                            
-                            <p class ="john">John Anthony U. Lontoc</p>
-                            <p class ="johngit">Github: </p> 
-                            <a class ="githubj" href ="https://github.com/PandaCanProgram" target="_blank" rel="noopener noreferrer">PandaCanProgram</a>
-                           <p class ="johnemail">Email: </p> 
-                           <a class ="email" href="mailto: cpe.lontoc.johnanthony@gmail.com"> cpe.lontoc.johnanthony@gmail.com </a>
-
+                <section class="developers-section">
+                    <div id="particles-js" class="developers-particles" aria-hidden="true"></div>
+                    <div class="section-shell developers-shell">
+                    <p class="section-kicker">Developers</p>
+                    <h1>Developers</h1>
+                    <div class="developers-content-space" aria-label="Developers content placeholder">
+                    <h2>Meet Our Development Team</h2>
+                    
+                    <div class="cards-grid">
+                        <!-- Gabriel Card -->
+                        <div class="dev-card">
+                        <h3 class="dev-name">Gabriel Luigi M. Gutierrez</h3>
+                        <div class="dev-info">
+                            <div class="info-row">
+                            <span class="info-label">GitHub:</span>
+                            <a href="https://github.com/gabrielgutz18" target="_blank" rel="noopener noreferrer" class="github-link">
+                                gabrielgutz18
+                            </a>
+                            </div>
+                            <div class="info-row">
+                            <span class="info-label">Email:</span>
+                            </div>
+                            <a href="mailto:cpe.gutierrrez.gabrielluigi@gmail.com" class="info-link">
+                            cpe.gutierrrez.gabrielluigi@gmail.com
+                            </a>
                         </div>
+                        </div>
+
+                        <!-- John Card -->
+                        <div class="dev-card">
+                        <h3 class="dev-name">John Anthony U. Lontoc</h3>
+                        <div class="dev-info">
+                            <div class="info-row">
+                            <span class="info-label">GitHub:</span>
+                            <a href="https://github.com/PandaCanProgram" target="_blank" rel="noopener noreferrer" class="github-link">
+                                PandaCanProgram
+                            </a>
+                            </div>
+                            <div class="info-row">
+                            <span class="info-label">Email:</span>
+                            </div>
+                            <a href="mailto:cpe.lontoc.johnanthony@gmail.com" class="info-link">
+                            cpe.lontoc.johnanthony@gmail.com
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </section>
             </main>
 
@@ -179,5 +205,8 @@
             </footer>
 
         </div>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="js/dev.js"></script>
+        <script src ="js/dropdown.js"></script>
     </body>
 </html>

@@ -222,20 +222,23 @@ main {
     border-radius: 999px;
     background: var(--text-light);
 }
+.header-actions {
+    position: relative;  /* Make this the positioning context */
+}
 
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: var(--header-bg);
+    background-color: #1a1a1a;  /* Dark opaque background */
+    border: 1px solid rgba(228, 138, 50, 0.3);
+    border-radius: 8px;
     min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    border: 1px solid var(--header-border);
-    border-top: none;
-    padding: 12px 0;
-    margin-top: -1px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    margin-top: 8px;
+    backdrop-filter: blur(10px);  /* Optional: adds glass effect */
 }
 
 .dropdown-content.active {
@@ -250,21 +253,43 @@ main {
     display: block;
     font-size: 0.95rem;
     transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(228, 138, 50, 0.1);
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
 }
 
 .dropdown-content a:hover {
     background-color: rgba(228, 138, 50, 0.2);
     color: var(--accent);
 }
-
 .developers-section {
+    position: relative;
+    overflow: hidden;
     padding: clamp(44px, 7vw, 88px) 20px;
     background:
         linear-gradient(180deg, rgba(247, 241, 232, 0.96), rgba(239, 234, 226, 0.96));
     border-bottom: 1px solid var(--surface-border);
 }
 
+.developers-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.55;
+}
+
+.developers-particles > canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .developers-shell {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -295,6 +320,148 @@ main {
     box-shadow: var(--shadow-soft);
 }
 
+.developers-content-space {
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-height: auto;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.developers-content-space h2 {
+  margin: 0;
+  color: #2d120c;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.dev-card {
+  background: linear-gradient(135deg, rgba(255, 250, 244, 0.95) 0%, rgba(244, 235, 223, 0.9) 100%);
+  border: 1px solid rgba(67, 49, 28, 0.2);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dev-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4754d, rgba(212, 117, 77, 0.4));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dev-card:hover {
+  border-color: rgba(67, 49, 28, 0.35);
+  box-shadow: 0 12px 24px rgba(67, 49, 28, 0.12);
+  transform: translateY(-4px);
+}
+
+.dev-card:hover::before {
+  opacity: 1;
+}
+
+.dev-name {
+  margin: 0 0 20px 0;
+  color: #2d120c;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.dev-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.info-label {
+  color: #2d120c;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.info-link {
+  color: #d4754d;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.info-link:hover {
+  border-bottom-color: #d4754d;
+  opacity: 0.8;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(212, 117, 77, 0.08);
+  border: 1px solid rgba(212, 117, 77, 0.2);
+  border-radius: 8px;
+  color: #d4754d;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.github-link:hover {
+  background: rgba(212, 117, 77, 0.15);
+  border-color: #d4754d;
+}
+
+@media (max-width: 640px) {
+  .developers-content-space {
+    padding: 32px 20px;
+    gap: 32px;
+  }
+
+  .developers-content-space h2 {
+    font-size: 24px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dev-card {
+    padding: 24px;
+  }
+
+  .dev-name {
+    font-size: 18px;
+  }
+}
 .site-footer {
     background: #26211d;
     color: #f4ede4;
