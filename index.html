@@ -363,23 +363,105 @@
                 </div>
             </section>
 
-            <section class="content-section contact-section" id="contact">
-                <div class="section-shell contact-panel">
-                    <div>
-                        <p class="section-kicker">Contact Us</p>
-                        <h2>Ready for the next section of your one-page site.</h2>
+                   <section class="content-section contact-section" id="contact">
+                <div class="section-shell contact-shell">
+                    <div class="contact-intro">
+                        <h2>Get in Touch with Us</h2>
                         <p>
-                            Add your real contact details, inquiry form, office address, and call to
-                            action here when you are ready to complete the page.
+                            Ready to elevate your construction project or advance your career?
+                            Contact us today for expert consultancy and training services.
                         </p>
                     </div>
 
-                    <div class="contact-note">
-                        <p class="contact-label">Contact Block</p>
-                        <strong>Replace this placeholder with your actual business details.</strong>
+                <div class="contact-grid">
+                    <div class="contact-panel">
+                        <div class="contact-card contact-info-card">
+                            <h3>Contact Information</h3>
+
+                            <div class="contact-item">
+                                <span class="contact-icon" aria-hidden="true">📞</span>
+                                <div>
+                                    <p class="contact-label">Phone</p>
+                                    <a href="tel:+63495087730">(049) 508-7730</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <span class="contact-icon" aria-hidden="true">✉️</span>
+                                <div>
+                                    <p class="contact-label">Email</p>
+                                    <a href="mailto:inquisitivementor@gmail.com">inquisitivementor@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <span class="contact-icon" aria-hidden="true">📍</span>
+                                <div>
+                                    <p class="contact-label">Service Areas</p>
+                                    <p>Philippines and International</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-card office-hours-card">
+                            <h3>Office Hours</h3>
+                            <div class="office-hours-row">
+                                <span>Monday - Friday</span>
+                                <strong>8:00 AM - 5:00 PM</strong>
+                            </div>
+                            <div class="office-hours-row">
+                                <span>Saturday</span>
+                                <strong>9:00 AM - 1:00 PM</strong>
+                            </div>
+                            <div class="office-hours-row">
+                                <span>Sunday</span>
+                                <strong>Closed</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card contact-form-card">
+                        <h3>Send Us a Message</h3>
+                        <form class="contact-form" action="#" method="post">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name*</label>
+                                <input id="contact-name" type="text" name="name" placeholder="Full Name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-email">Email Address*</label>
+                                <input id="contact-email" type="email" name="email" placeholder="Email Address" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-phone">Phone Number*</label>
+                                <input id="contact-phone" type="tel" name="phone" placeholder="Phone Number" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-service">Service Interested In*</label>
+                                <select id="contact-service" name="service" required>
+                                    <option value="">Select a Service</option>
+                                    <option>Budgetary Cost Plans</option>
+                                    <option>Tendering & Procurement</option>
+                                    <option>Contract Documentation</option>
+                                    <option>Financial Reporting</option>
+                                    <option>Change Management</option>
+                                    <option>Contract Management</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-message">Message*</label>
+                                <textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your project or training needs" required></textarea>
+                            </div>
+
+                            <button type="submit" class="button-primary">Send Message</button>
+                        </form>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
         </main>
 
         <footer class="site-footer">

@@ -223,6 +223,40 @@ main {
     background: var(--text-light);
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--header-bg);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    border: 1px solid var(--header-border);
+    border-top: none;
+    padding: 12px 0;
+    margin-top: -1px;
+}
+
+.dropdown-content.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-content a {
+    color: var(--text-light);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(228, 138, 50, 0.2);
+    color: var(--accent);
+}
+
 .developers-section {
     padding: clamp(44px, 7vw, 88px) 20px;
     background:
