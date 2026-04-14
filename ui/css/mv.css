@@ -1,0 +1,210 @@
+:root {
+    --page-bg: #efeff1;
+    --header-bg: #26231f;
+    --header-border: #38312a;
+    --text-light: #ffffff;
+    --muted-light: #ddd6ca;
+    --accent: #e48a32;
+    --search-bg: #f8f5f0;
+    --search-text: #928978;
+    --hero-tint: rgba(98, 74, 42, 0.42);
+    --hero-fallback-a: #b7a083;
+    --hero-fallback-b: #8a755d;
+    --surface: #f7f1e8;
+    --surface-strong: #efe4d6;
+    --surface-border: rgba(67, 49, 28, 0.14);
+    --shadow-soft: 0 18px 40px rgba(38, 28, 20, 0.12);
+}
+
+html,
+body {
+    overflow-y: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100svh;
+    padding: 0;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background: var(--page-bg);
+    color: #1f1a16;
+}
+
+.page-shell {
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: block;
+}
+
+.site-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    padding: 10px 22px;
+    background: var(--header-bg);
+    border: 1px solid var(--header-border);
+    color: var(--text-light);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.brand-mark::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+}
+
+.brand-mark-core {
+    position: relative;
+    z-index: 1;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    color: var(--muted-light);
+}
+
+.brand-copy {
+    min-width: 0;
+}
+
+.brand-title,
+.brand-tagline {
+    margin: 0;
+}
+
+.brand-title {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.03em;
+}
+
+.brand-accent {
+    color: var(--accent);
+}
+
+.brand-tagline {
+    margin-top: 3px;
+    max-width: 240px;
+    color: var(--muted-light);
+    font-size: 0.64rem;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.site-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.site-nav a {
+    color: var(--text-light);
+    font-size: 0.98rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.site-nav a:hover {
+    color: var(--accent);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 190px;
+    padding: 6px 14px;
+    background: var(--search-bg);
+    border-radius: 999px;
+}
+
+.search-icon {
+    width: 12px;
+    height: 12px;
+    border: 2px solid #b6ad9f;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.search-icon::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    bottom: -3px;
+    width: 7px;
+    height: 2px;
+    background: #b6ad9f;
+    border-radius: 999px;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+.search-form input {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--search-text);
+    font: inherit;
+    outline: none;
+}
+
+.search-form input::placeholder {
+    color: var(--search-text);
+}
+
+.menu-button {
+    display: grid;
+    align-content: space-between;
+    width: 24px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--text-light);
+}
