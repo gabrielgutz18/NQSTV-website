@@ -3,8 +3,8 @@
     <head>
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-        <link rel = "Stylesheet" href = "css/dev.css">
-        <title>location</title>
+        <link rel = "Stylesheet" href = "css/team.css">
+        <title>Our Team</title>
     </head>
     <body>
         <div class = "page-shell">
@@ -27,20 +27,67 @@
                 </nav>
 
                 <div class ="header-actions">
-                    <from class = "search-form" role = "search">
+                    <form class = "search-form" role = "search">
                         <span class="search-icon" aria-hidden ="true"></span>
                         <input type ="search" name ="q" placeholder = "Search" aria-label = "Search">
-                    </from>
+                    </form>
 
                     <button class = "menu-button" type="button" aria-label="Open menu">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </button>                
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="mv.html">Mission Vision</a>
+                        <a href="team.html">Our Team</a>
+                        <a href="projectinfo.html">Project Portfolio</a>
+                        <a href="map.html">Map</a>
+                        <a href="dev.html">Developers</a>
+                    </div>                    
                 </div>
             </header>
-
+            <main>
+                <section class="container">
+                    <!-- Header -->
+                    <div class="header">
+                        <h1>Our Team</h1>
+                        <p>Ready to elevate your project or advance your career?</p>
+                        <p>Contact us today to report considerations and make an impact.</p>
+                    </div>
             
+                    <!-- Team Gallery -->
+                    <div class="team-gallery">
+                        <div class="gallery-container">
+                            <img src="img/team.png" alt="NQSTV Team" class="gallery-image">
+                        </div>
+                    </div>
+            
+                    <!-- Meet the Team -->
+                    <div class="meet-team">
+                        <h2>Meet the Team</h2>
+                        <p>At NQSTV Cost Estimating, Services, we pride ourselves in being a Dedicated Qualified Personnel.</p>
+                        <p>However, it cannot be Disregarded in its to report considerations, a lot to know we will be further in the knowledge to this team.</p>
+                    </div>
+            
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-photo">
+                                <img src="img/mamces.png" alt="Engr. Cecilia Torres">
+                            </div>
+                            <div class="member-info">
+                                <h3>Engr. Cecilia Torres</h3>
+                                <div class="title">NQSTV Manager</div>
+                                <p>Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text Sample text </p>
+                                <p>Sample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample text</p>
+                                <p>Sample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample textSample text</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+        
             <footer class="site-footer">
                 <div class="section-shell footer-shell">
                     <div class="footer-grid">
@@ -147,6 +194,9 @@
 
             
         </div>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="js/particle.js"></script>
+        <script src="js/dropdown.js"></script>
     </body>
     
 </html>

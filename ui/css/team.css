@@ -208,6 +208,48 @@ main {
     border-radius: 999px;
     background: var(--text-light);
 }
+.header-actions {
+    position: relative;  /* Make this the positioning context */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #1a1a1a;  /* Dark opaque background */
+    border: 1px solid rgba(228, 138, 50, 0.3);
+    border-radius: 8px;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    margin-top: 8px;
+    backdrop-filter: blur(10px);  /* Optional: adds glass effect */
+}
+
+.dropdown-content.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-content a {
+    color: var(--text-light);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(228, 138, 50, 0.1);
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(228, 138, 50, 0.2);
+    color: var(--accent);
+}
 
 .site-footer {
     background: #26211d;
@@ -549,4 +591,161 @@ main {
     .footer-legal-item:focus-within .footer-legal-card {
         transform: translateX(-50%) translateY(0);
     }
+
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+ 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+ 
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+ 
+.header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222;
+}
+ 
+.header p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+ 
+/* Team Gallery */
+.team-gallery {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+ 
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+ 
+.gallery-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+ 
+/* Meet the Team */
+.meet-team {
+    margin-bottom: 50px;
+}
+ 
+.meet-team h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #222;
+}
+ 
+.meet-team p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 10px;
+}
+ 
+/* Team Member */
+.team-member {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+ 
+.member-header {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.gallery-container {
+    max-width: 760px;
+    margin: 0 auto 20px;
+}
+
+.gallery-image {
+    width: 100%;
+    max-width: 680px;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+.member-photo {
+    flex: 0 0 220px;
+    width: 220px;
+}
+
+.member-photo img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.member-info {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .team-gallery,
+    .team-member {
+        padding: 24px;
+    }
+
+    .gallery-container {
+        max-width: 100%;
+    }
+
+    .gallery-image {
+        max-width: 100%;
+        max-height: 320px;
+    }
+
+    .member-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .member-photo {
+        width: 180px;
+        flex-basis: 180px;
+    }
+
+    .member-photo img {
+        max-width: 180px;
+        height: 220px;
+    }
+}
+ 

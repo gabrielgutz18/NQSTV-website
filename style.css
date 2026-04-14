@@ -564,6 +564,8 @@ main {
     margin-bottom: 1.25rem;
 }
 
+
+
 .contact-icon {
     display: inline-flex;
     align-items: center;
@@ -585,7 +587,24 @@ main {
     color: inherit;
     text-decoration: none;
 }
+.contact-item a,
+.contact-links a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
 
+.contact-item a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+}
+
+.contact-item a:hover,
+.contact-links a:hover {
+    color: var(--accent);
+}
 .office-hours-card {
     background: #ffffff;
 }
