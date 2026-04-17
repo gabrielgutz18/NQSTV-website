@@ -8,7 +8,7 @@
                 let isSatelliteMode = false;
                 let currentZoom = 1;
                 
-                // Satellite toggle
+                
                 if (satelliteBtn && mapLayer2) {
                     satelliteBtn.addEventListener('click', function() {
                         isSatelliteMode = !isSatelliteMode;
