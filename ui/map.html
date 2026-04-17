@@ -56,13 +56,15 @@
 
             <div class="map-card">
                 <div class="map-container">
-                    <img src="img/maploc.png" alt="Map showing the location of NQSTV office in Liliw, Laguna, Philippines" class="map-image">
-                    <button class = "zoom-btn">🔍+</button>
-                    <button class = "zoom-out-btn">🔍-</button>
-                <div>
+                    <img src="img/map1.png" alt="Map showing the location of NQSTV office in Liliw, Laguna, Philippines" class="map-image" id="map-layer-1">
+                    <img src="img/map2.png" alt="Satellite view of NQSTV office in Liliw, Laguna, Philippines" class="map-image map-image2" id="map-layer-2">
+                    <button class="zoom-btn" id="zoom-in-btn">🔍+</button>
+                    <button class="satellite-btn" id="satellite-toggle">Satellite</button>
+                    <button class="zoom-out-btn" id="zoom-out-btn">🔍-</button>
+                </div>
             </div>
             <div class="map-info">
-                
+
             </div>
 
 
@@ -179,8 +181,9 @@
 
             
         </div>
-        <script src ="js/dropdown.js"></script>
-        <script src ="js/zoom.js"></script>
+        <script src="js/dropdown.js"></script>
+        <script src="js/zoom.js"></script>
+        <script src="js/map.js"></script>
     </body>
     
 </html>
