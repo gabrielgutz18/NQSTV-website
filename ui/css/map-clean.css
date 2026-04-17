@@ -759,7 +759,6 @@ main {
     }
 }
 
-/* Map Info Card - Vertical aligned 2 images in one card */
 .map-wrapper {
     display: flex;
     gap: 2rem;
@@ -826,6 +825,15 @@ main {
     transform: scale(1.05);
     border-color: rgba(228, 138, 50, 0.6);
     box-shadow: 0 12px 30px rgba(228, 138, 50, 0.4);
+}
+
+.image-modal {
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 .map-info p {

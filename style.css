@@ -296,15 +296,11 @@ main {
 }
 
 .intro-section {
-    background:
-        linear-gradient(180deg, rgba(239, 234, 226, 0.96), rgba(247, 241, 232, 0.96));
+    
     border-bottom: 1px solid var(--surface-border);
 }
 
-.training-section {
-    background:
-        linear-gradient(180deg, rgba(239, 234, 226, 0.96), rgba(247, 241, 232, 0.96));
-}
+
 
 .project-text {
     margin: 40px 0 20px;
@@ -395,9 +391,7 @@ main {
     border-style: dashed;
 }
 
-.services-section {
-    background: #f5f2ec;
-}
+
 
 .services-layout {
     display: flex;
