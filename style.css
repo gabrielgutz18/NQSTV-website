@@ -494,8 +494,13 @@ main {
 
 .service-card-link {
     display: block;
+    height: 100%;
     text-decoration: none;
     color: inherit;
+}
+
+.service-card-link .service-card {
+    height: 100%;
 }
 
 .service-card-link:hover {
