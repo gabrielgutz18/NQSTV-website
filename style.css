@@ -492,6 +492,27 @@ main {
     text-transform: uppercase;
 }
 
+.service-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.service-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.service-card-link:hover .service-card {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(31, 23, 17, 0.12);
+    border-color: var(--accent);
+}
+
+.service-card-link .service-icon {
+    pointer-events: none;
+}
+
 /* Contact section */
 .contact-intro {
     max-width: 680px;
