@@ -1,0 +1,39 @@
+# Responsive Refresh for `mv.html`
+
+## Summary
+- Make `ui/mv.html` fully responsive from desktop down to small phones by replacing fixed sizing with fluid spacing, width clamps, and progressive stacking.
+- Preserve the current visual style and use the selected mobile header behavior: a compact stacked header with visible nav links, not hamburger-only navigation.
+- Fix the malformed HTML that can make responsive behavior inconsistent across browsers.
+
+## Key Changes
+- `ui/mv.html`
+  - Fix invalid markup: change `<from>` to `<form>`, close the broken `</section>` tag, and clean up the extra/misaligned paragraph tags in the Vision block.
+  - Restructure the Vision/Mission content into a cleaner responsive section shell so text blocks have controlled width and spacing.
+  - Convert the Mission bullet text into a semantic list (`ul`/`li`) so it wraps cleanly on narrow screens and reads better on mobile.
+- `ui/css/mv.css`
+  - Add a safer base for responsiveness: global `box-sizing`, `overflow-x: hidden`, fluid section padding, and max-width containers.
+  - Rework the header breakpoints so brand, nav, search, and menu stack cleanly at tablet/mobile widths; make the search bar full-width on small screens and clamp the dropdown width to the viewport.
+  - Replace fixed Mission card sizing/padding with fluid `min()`/`clamp()` sizing so the card never overflows and remains readable on tablets and phones.
+  - Update typography with `clamp()` for the Vision heading, section title, and body copy so text scales smoothly across screen sizes.
+  - Change the core values layout to a fluid grid that stays multi-column on larger screens and collapses cleanly to one column on smaller devices.
+  - Keep footer responsiveness intact, while ensuring long links and contact text wrap without causing horizontal scroll.
+- Behavior/style decisions
+  - Keep hover effects on desktop, but prevent them from causing awkward layout shifts on smaller/touch layouts.
+  - Keep the page non-fixed/non-sticky unless existing behavior already requires otherwise; the focus is responsive layout, not header behavior changes.
+
+## Public Interface Changes
+- No external API, route, or data-shape changes.
+- Internal DOM changes only: helper wrappers for responsive layout and semantic list markup for the Mission items.
+
+## Test Plan
+- Manually verify at `1440px`, `1024px`, `768px`, `480px`, and `360px`.
+- Confirm there is no horizontal scrollbar at any width.
+- Confirm the header remains usable at all sizes: nav links visible, search fits, menu dropdown stays on-screen.
+- Confirm the Vision text wraps naturally, the Mission card stays inside the viewport, and the core values grid collapses cleanly.
+- Confirm the footer transitions from 3 columns to 2 to 1 without clipped text or overflowing links.
+- Re-check the page after HTML cleanup to ensure CSS and dropdown behavior attach consistently.
+
+## Assumptions
+- Scope stays limited to `ui/mv.html` and `ui/css/mv.css`; `ui/js/dropdown.js` remains unchanged unless a tiny dropdown-positioning tweak is required.
+- The goal is to keep the current look and content, only improving structure and responsiveness where needed.
+- Mobile uses the chosen compact stacked header, with visible primary nav links retained.

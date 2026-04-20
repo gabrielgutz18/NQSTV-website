@@ -1,75 +1,83 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
     <head>
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-        <link rel = "Stylesheet" href = "css/mv.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/mv.css">
         <title>Mission Vision</title>
         <link rel="icon" type="image/png" href="../images/logonsqtv.png">
     </head>
     <body>
-        <div class = "page-shell">
-            <header class = "site-header">
-                <div class = "brand">
-                    <img src = "../images/logonsqtv.png"
-                         alt = "NQSTV logo"
-                         style = "width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.28);object-fit:cover;flex-shrink:0;">
-                    <div class ="brand-copy">
-                            <p class = "brand-title">N<span  class = "brand-accent">Q</span>STV</p>
-                            <p class = "brand-tagline"> Cost and Contract Training &amp;  Consultancy Services</p>
+        <div class="page-shell">
+            <header class="site-header">
+                <div class="brand">
+                    <img
+                        src="../images/logonsqtv.png"
+                        alt="NQSTV logo"
+                        style="width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.28);object-fit:cover;flex-shrink:0;"
+                    >
+                    <div class="brand-copy">
+                        <p class="brand-title">N<span class="brand-accent">Q</span>STV</p>
+                        <p class="brand-tagline">Cost and Contract Training &amp; Consultancy Services</p>
                     </div>
                 </div>
 
-                <nav class = "site-nav" aria-label ="Primary navigation">
-                    <a href = "../index.html">Home</a>
-                    <a href = "../index.html#about">About us</a>
-                    <a href = "../index.html#services">Our Services</a>
-                    <a href = "../index.html#contact">Contact us</a>
+                <nav class="site-nav" aria-label="Primary navigation">
+                    <a href="../index.html">Home</a>
+                    <a href="../index.html#about">About us</a>
+                    <a href="../index.html#services">Our Services</a>
+                    <a href="../index.html#contact">Contact us</a>
                 </nav>
 
-                <div class ="header-actions">
-                    <from class = "search-form" role = "search">
-                        <span class="search-icon" aria-hidden ="true"></span>
-                        <input type ="search" name ="q" placeholder = "Search" aria-label = "Search">
-                    </from>
+                <div class="header-actions">
+                    <form class="search-form" role="search">
+                        <span class="search-icon" aria-hidden="true"></span>
+                        <input type="search" name="q" placeholder="Search" aria-label="Search">
+                    </form>
 
-                    <button class = "menu-button" type="button" aria-label="Open menu">
+                    <button class="menu-button" type="button" aria-label="Open menu">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
-                  
-                    <div class="dropdown-content">
+
+                    <div class="dropdown-content" id="mv-menu">
                         <a href="mv.html">Mission Vision</a>
                         <a href="team.html">Our Team</a>
                         <a href="projectinfo.html">Project Portfolio</a>
                         <a href="map.html">Map</a>
                         <a href="dev.html">Developers</a>
-                    </div>                    
+                    </div>
                 </div>
             </header>
 
             <main>
-                <section>
-                    <div class="header">
-                        <h1> Our Vision</h1>
-                        <p>
-                            To become one of the leading</p> <p>advocates in promulgating the Cost and Contract Management</p> 
-                            <p> and Quantity Surveying Industry in the Philippines.</p>
-                        </p>
+                <section class="mission-vision-section">
+                    <div class="section-shell mission-vision-shell">
+                        <div class="vision-panel">
+                            <p class="section-kicker">Mission and Vision</p>
+                            <div class="header">
+                                <h1>Our Vision</h1>
+                                <p>
+                                    To become one of the leading advocates in promulgating the Cost and
+                                    Contract Management and Quantity Surveying Industry in the Philippines.
+                                </p>
+                            </div>
+                        </div>
 
-                    </div>
-
-                    <div class ="Mission-card">
-                        <h2>Mission</h2>
-                        <p><b>In order to achieve our vision, we are dedicated to:</b></p>
-                        <p>• Providing and maintaining the best quality QS Services to clients</p>
-                        <p>• Promoting Cost and Contract Management as an integral part of Project Management</p>
-                        <p>• Making education accessible to both Metro Manila and provincial areas</p>
-                        <p>• Offering affordable training without compromising quality</p>
-
+                        <article class="Mission-card">
+                            <h2>Mission</h2>
+                            <p class="mission-lead"><strong>In order to achieve our vision, we are dedicated to:</strong></p>
+                            <ul class="mission-list">
+                                <li>Providing and maintaining the best quality QS services to clients.</li>
+                                <li>Promoting Cost and Contract Management as an integral part of Project Management.</li>
+                                <li>Making education accessible to both Metro Manila and provincial areas.</li>
+                                <li>Offering affordable training without compromising quality.</li>
+                            </ul>
+                        </article>
                     </div>
                 </section>
+
                 <section class="core-value-section">
                     <div class="section-shell">
                         <h2 class="section-title">Our Core Values</h2>
@@ -77,12 +85,12 @@
                             <article class="core-card">
                                 <div class="core-icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 9L12 6L12 18L3 15Z"></path>
-                                    <circle cx="3" cy="12" r="1.5"></circle>
-                                    <path d="M15 7Q17 9 15 11" fill="none"></path>
-                                    <path d="M18 5Q21 9 18 13" fill="none"></path>
-                                    <path d="M21 3Q25 9 21 15" fill="none"></path>
-                                 </svg>
+                                        <path d="M3 9L12 6L12 18L3 15Z"></path>
+                                        <circle cx="3" cy="12" r="1.5"></circle>
+                                        <path d="M15 7Q17 9 15 11" fill="none"></path>
+                                        <path d="M18 5Q21 9 18 13" fill="none"></path>
+                                        <path d="M21 3Q25 9 21 15" fill="none"></path>
+                                    </svg>
                                 </div>
                                 <h4>Advocacy</h4>
                                 <p>We accept that educating Filipino Constructors is not an easy task but we accept the challenge.</p>
@@ -90,14 +98,14 @@
 
                             <article class="core-card">
                                 <div class="core-icon" aria-hidden="true">
-                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="6" cy="12" r="3"></circle>
-                                    <circle cx="18" cy="12" r="3"></circle>
-                                    <path d="M9 12L15 12"></path>
-                                    <path d="M11 10L13 12L11 14"></path>
-                                    <circle cx="6" cy="12" r="1.5" fill="currentColor"></circle>
-                                    <circle cx="18" cy="12" r="1.5" fill="currentColor"></circle>
-                                 </svg>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="12" r="3"></circle>
+                                        <path d="M9 12L15 12"></path>
+                                        <path d="M11 10L13 12L11 14"></path>
+                                        <circle cx="6" cy="12" r="1.5" fill="currentColor"></circle>
+                                        <circle cx="18" cy="12" r="1.5" fill="currentColor"></circle>
+                                    </svg>
                                 </div>
                                 <h4>Continuity</h4>
                                 <p>We promote that education is a never-ending process.</p>
@@ -116,9 +124,9 @@
 
                             <article class="core-card">
                                 <div class="core-icon" aria-hidden="true">
-                                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="9"></circle>
-                                    <path d="M8 12l2 2 4-4"></path>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="9"></circle>
+                                        <path d="M8 12l2 2 4-4"></path>
                                     </svg>
                                 </div>
                                 <h4>Value for Money</h4>
@@ -126,13 +134,9 @@
                             </article>
                         </div>
                     </div>
-                </section
+                </section>
             </main>
-            
 
-
-
-            
             <footer class="site-footer">
                 <div class="section-shell footer-shell">
                     <div class="footer-grid">
@@ -181,8 +185,6 @@
                                 </li>
                             </ul>
                         </div>
-                    
-
 
                         <div class="footer-column">
                             <h2>Services</h2>
@@ -236,8 +238,10 @@
                     </div>
                 </div>
             </footer>
-        <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></div>
+
+            <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></div>
         </div>
+
         <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
         <script src="js/particle.js"></script>
         <script src="js/dropdown.js"></script>
