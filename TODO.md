@@ -1,12 +1,22 @@
-# Undo Card Widening in Project Info - COMPLETE
+# Responsive Banner-Inquiry Section (#banner-inquiry) - COMPLETE
 
-## Steps from Approved Plan:
-1. [x] Update ui/css/project.css: Reduce .project-grid max-width to 900px, padding to 20px, margin to 40px.
-2. [x] Update ui/css/project.css: Remove .project-grid.other-projects 2-col rule.
-3. [x] Update ui/css/project.css: Reduce .project-card padding to 24px.
-4. [x] Verify layout: Open ui/projectinfo.html in browser.
-5. [x] Update TODO.md complete and cleanup.
+## Steps:
+1. [x] Create responsive styles in style.css for .banner-content, .message, .banner-video, .btn-banner.
+2. [x] Add desktop/tablet/mobile media queries.
+3. [x] Ensure video responsive aspect-ratio.
+4. [x] Test in browser.
+5. [x] Mark complete.
 
-Current progress: Task complete. Cards now narrower (max-width 900px, reduced padding/margins, single column).
+Current progress: Complete. Fixed selector issue (`#banner-inquiry .first.section.background-image`), banner visible/responsive: desktop row flex, tablet/mobile stacked, video 21/26 ratio, clamp text/button sizing, viewport-safe padding/gaps. Browser tested/opened.
 
+t# Responsive Banner-Inquiry Section (#banner-inquiry)
+
+## Steps:
+1. [x] Create responsive styles in style.css for .banner-content, .message, .banner-video, .btn-banner.
+2. [x] Add desktop/tablet/mobile media queries.
+3. [x] Ensure video responsive aspect-ratio.
+4. [] Test in browser.
+5. [] Mark complete.
+
+Current progress: Styles added - enhanced flex layout, video aspect-ratio container, responsive text/button sizing, full padding support.
 
