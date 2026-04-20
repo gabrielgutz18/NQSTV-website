@@ -65,22 +65,17 @@
                 
                 <div class="map-card">
                     <div class="map-container">
-                        <img src="img/map1.png" alt="Map showing the location of NQSTV office in Liliw, Laguna, Philippines" class="map-image" id="map-layer-1">
-                        <img src="img/map2.png" alt="Satellite view of NQSTV office in Liliw, Laguna, Philippines" class="map-image map-image2" id="map-layer-2">
-                        <button class="zoom-btn" id="zoom-in-btn">🔍+</button>
-                        <button class="satellite-btn" id="satellite-toggle">Satellite</button>
-                        <button class="zoom-out-btn" id="zoom-out-btn">🔍-</button>
+                        <img src="img/map1.png" alt="Map showing the location of NQSTV office in Liliw, Laguna, Philippines" class="map-image" id="map-layer-1" draggable="false">
+                        <img src="img/map2.png" alt="Satellite view of NQSTV office in Liliw, Laguna, Philippines" class="map-image map-image2" id="map-layer-2" draggable="false">
+                        <button class="zoom-btn" id="zoom-in-btn" type="button" aria-label="Zoom in">+</button>
+                        <button class="satellite-btn" id="satellite-toggle" type="button" aria-label="Toggle satellite view">Satellite</button>
+                        <button class="zoom-out-btn" id="zoom-out-btn" type="button" aria-label="Zoom out">-</button>
                     </div>
+                    <p class="map-hint">Zoom in, then drag the map to explore the area on desktop or mobile.</p>
                 </div>
             </div>
-
-
-
-
          </main>
 
-
-            
             <footer class="site-footer">
                 <div class="section-shell footer-shell">
                     <div class="footer-grid">
@@ -191,7 +186,6 @@
          <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
         <script src="js/particle.js"></script>
         <script src="js/dropdown.js"></script>
-        <script src="js/zoom.js"></script>
 <script src="js/map-info-modal.js"></script>
         <script src="js/map.js"></script>
     </body>

@@ -276,35 +276,55 @@ main {
 .map-container {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 14px;
     width: 100%;
-    height: 400px;
-    background: #1a1a1a;
+    max-width: 100%;
+    aspect-ratio: 1066 / 607;
+    min-height: 220px;
+    background: linear-gradient(180deg, #131313, #202020);
+    isolation: isolate;
+    touch-action: pan-y pinch-zoom;
+    cursor: default;
 }
 
-.map-image {
+.map-container.is-zoomed {
+    cursor: grab;
+    touch-action: none;
+}
+
+.map-container.is-dragging {
+    cursor: grabbing;
+}
+
+.map-image,
+.map-image2 {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     display: block;
-    transition: opacity 0.6s ease, transform 0.3s ease;
-    border-radius: 8px;
-    object-fit: cover;
+    border-radius: inherit;
+    object-fit: contain;
+    object-position: center;
+    transform-origin: center center;
+    transition: opacity 0.35s ease, transform 0.2s ease-out;
+    will-change: transform;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+.map-container.is-dragging .map-image,
+.map-container.is-dragging .map-image2 {
+    transition-duration: 0s;
+}
+
+.map-image {
     z-index: 1;
 }
 
 .map-image2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     opacity: 0;
-    transition: opacity 0.6s ease;
-    border-radius: 8px;
     z-index: 2;
 }
 
@@ -312,7 +332,12 @@ main {
 .zoom-out-btn,
 .satellite-btn {
     position: absolute;
-    padding: 10px 15px;
+    top: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 14px;
     background-color: rgba(228, 138, 50, 0.75);
     color: #fff;
     border: 1px solid rgba(228, 138, 50, 0.5);
@@ -328,21 +353,20 @@ main {
 
 .zoom-btn,
 .zoom-out-btn {
-    top: 15px;
+    min-width: 44px;
 }
 
 .zoom-btn {
-    right: 15px;
+    right: 14px;
 }
 
 .zoom-out-btn {
-    right: 80px;
+    right: 68px;
 }
 
 .satellite-btn {
-    top: 15px;
-    left: 15px;
-    padding: 8px 16px;
+    left: 14px;
+    padding: 10px 16px;
     font-size: 14px;
 }
 
@@ -360,26 +384,39 @@ main {
 .satellite-btn:active {
     transform: scale(0.98);
 }
+
+.zoom-btn:disabled,
+.zoom-out-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.zoom-btn:disabled:hover,
+.zoom-out-btn:disabled:hover {
+    background-color: rgba(228, 138, 50, 0.75);
+    border-color: rgba(228, 138, 50, 0.5);
+    box-shadow: none;
+    transform: none;
+}
+
 @media (max-width: 768px) {
     .map-card {
         padding: 24px;
     }
-}
 
-.map-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
+    .map-container {
+        min-height: 200px;
+    }
 }
 
 .map-card {
     background-color: #d3d2d1;
-    padding: 40px;
+    padding: clamp(16px, 3vw, 40px);
     margin: 0 0 50px auto;
     max-width: 900px;
     width: 100%;
-    
+    min-width: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
     position: relative;
@@ -387,7 +424,9 @@ main {
     overflow: hidden;
     transform: translateY(0);
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
     justify-content: flex-start;
 }
 
@@ -415,6 +454,14 @@ main {
 .map-card p {
     text-align: left;
     color: #fff;
+}
+
+.map-hint {
+    margin: 14px 4px 0;
+    color: #4f4135;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left;
 }
 
 .site-footer {
@@ -763,7 +810,7 @@ main {
     display: flex;
     gap: 2rem;
     align-items: stretch;
-    max-width: 1200px;
+    width: min(1200px, calc(100% - 40px));
     margin: 0 auto 3rem;
 }
 
@@ -853,16 +900,52 @@ main {
     
     .map-info {
         max-width: none;
+        min-height: 0;
         order: -1;
     }
 }
 
 @media (max-width: 640px) {
     .map-wrapper {
+        width: min(100%, calc(100% - 24px));
         gap: 1rem;
     }
+
+    .map-card {
+        margin-bottom: 0;
+        padding: 16px;
+    }
+
+    .map-container {
+        min-height: 190px;
+    }
+
+    .zoom-btn,
+    .zoom-out-btn,
+    .satellite-btn {
+        top: 10px;
+        min-height: 38px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .zoom-btn {
+        right: 10px;
+    }
+
+    .zoom-out-btn {
+        right: 56px;
+    }
+
+    .satellite-btn {
+        left: 10px;
+        padding-inline: 12px;
+        font-size: 13px;
+    }
+
     .map-info {
         height: auto;
+        min-height: 0;
         padding: 1.5rem;
         gap: 1rem;
     }
@@ -872,5 +955,10 @@ main {
     }
     .map-info p {
         font-size: 0.95rem;
+    }
+
+    .map-hint {
+        margin-top: 12px;
+        font-size: 0.9rem;
     }
 }
