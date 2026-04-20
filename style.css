@@ -276,7 +276,7 @@ main {
 }
 #banner-inquiry .first.section.background-image,
 .first.section.backgroung-image {
-    min-height: clamp(320px, 44vw, 560px);
+    min-height: 100svh;
     width: 100vw;
     margin-top: -1px;
     margin-left: calc(50% - 50vw);
@@ -978,7 +978,7 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 28px;
-  padding: 60px 80px;
+  padding: 92px 80px 60px;
   margin: 0 auto;
   width: 100%;
   background: #1a1a1a;
@@ -1123,8 +1123,8 @@ main {
 
 .view-more {
   position: absolute;
-  top: -20px;
-  right: -30px;
+  top: 24px;
+  right: 24px;
   z-index: 15;
 }
 
@@ -1654,5 +1654,451 @@ main {
     .footer-legal-item:hover .footer-legal-card,
     .footer-legal-item:focus-within .footer-legal-card {
         transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Responsive refinements */
+img,
+video {
+    max-width: 100%;
+}
+
+@media (max-width: 1180px) {
+    :root {
+        --header-offset: 132px;
+    }
+
+    .site-header {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+
+    .brand {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .header-actions {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+    }
+
+    .site-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        justify-content: center;
+        gap: 16px 22px;
+        padding-top: 4px;
+    }
+
+    .banner-content {
+        gap: clamp(24px, 4vw, 40px);
+    }
+
+    .project-carousel {
+        padding: 56px 56px 72px;
+    }
+
+    .carousel-slide.prev {
+        left: 20px;
+    }
+
+    .carousel-slide.next {
+        right: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    :root {
+        --header-offset: 174px;
+    }
+
+    .site-header {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 12px 16px;
+    }
+
+    .brand,
+    .site-nav,
+    .header-actions {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100%;
+    }
+
+    .site-nav {
+        justify-content: flex-start;
+        gap: 12px 18px;
+    }
+
+    .site-nav a {
+        font-size: 0.95rem;
+    }
+
+    .header-actions {
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .search-form {
+        flex: 1 1 240px;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .dropdown-content {
+        min-width: min(220px, calc(100vw - 32px));
+    }
+
+    .first.section.backgroung-image {
+        min-height: auto;
+        padding: calc(var(--header-offset) + 10px) 16px 40px;
+    }
+
+    .banner-content,
+    .intro-layout,
+    .training-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .banner-content {
+        padding: 0;
+    }
+
+    .banner-content .message {
+        max-width: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .banner-video,
+    .training-image,
+    .welcome-image {
+        width: min(100%, 360px);
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    .service-grid,
+    .training-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-carousel {
+        padding: 56px 24px 80px;
+    }
+
+    .carousel-container {
+        min-height: 330px;
+        overflow: visible;
+    }
+
+    .carousel-slide {
+        width: min(220px, 36vw);
+    }
+
+    .carousel-slide.prev,
+    .carousel-slide.next {
+        display: flex !important;
+        opacity: 0.5;
+        transform: scale(0.72);
+    }
+
+    .carousel-slide.prev {
+        left: 0;
+    }
+
+    .carousel-slide.next {
+        right: 0;
+    }
+
+    .carousel-slide img {
+        height: 280px;
+    }
+
+    .carousel-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+
+    .view-more {
+        top: 14px;
+        right: 14px;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --header-offset: 0px;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    main {
+        padding-top: 0;
+    }
+
+    .site-header {
+        position: relative;
+        top: auto;
+    }
+
+    .brand-copy {
+        min-width: 0;
+    }
+
+    .brand-tagline {
+        max-width: 160px;
+        font-size: 0.52rem;
+    }
+
+    .site-nav {
+        justify-content: space-between;
+        gap: 10px 14px;
+    }
+
+    .site-nav a {
+        font-size: 0.92rem;
+    }
+
+    .header-actions {
+        align-items: stretch;
+    }
+
+    .search-form {
+        order: 1;
+        width: 100%;
+    }
+
+    .menu-button {
+        order: 2;
+        justify-self: end;
+    }
+
+    .dropdown-content {
+        top: calc(100% + 6px);
+        right: 0;
+    }
+
+    .first.section.backgroung-image {
+        padding: 32px 16px 30px;
+    }
+
+    .banner-content {
+        align-items: center;
+        text-align: center;
+        gap: 18px;
+        justify-content: flex-start;
+    }
+
+    .banner-content .message {
+        align-items: center;
+        text-align: center;
+        order: 1;
+        justify-content: flex-start;
+        padding-top: 0;
+    }
+
+    .message p {
+        max-width: 28rem;
+    }
+
+    .btn-banner {
+        width: 100%;
+        max-width: 240px;
+    }
+
+    .banner-video {
+        flex-basis: auto;
+        width: min(100%, 250px);
+        order: 2;
+    }
+
+    .content-section {
+        padding: 30px 16px;
+    }
+
+    .contact-card,
+    .service-card,
+    .training-card,
+    .training-why {
+        border-radius: 18px;
+    }
+
+    .service-grid,
+    .training-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 1.25rem;
+    }
+
+    .office-hours-row {
+        gap: 10px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .project-carousel {
+        padding: 28px 12px 84px;
+        gap: 22px;
+    }
+
+    .carousel-container {
+        min-height: 250px;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .carousel-slide {
+        position: absolute;
+        width: min(118px, 30vw);
+        max-width: 100%;
+    }
+
+    .carousel-slide img {
+        height: 165px;
+    }
+
+    .carousel-slide.prev,
+    .carousel-slide.next {
+        display: flex;
+        opacity: 0.5;
+        transform: scale(0.72);
+        z-index: 1;
+    }
+
+    .carousel-slide.prev {
+        left: 0;
+    }
+
+    .carousel-slide.next {
+        right: 0;
+    }
+
+    .carousel-slide.active {
+        position: relative;
+        left: 0 !important;
+        right: auto !important;
+        width: min(150px, 42vw);
+        transform: scale(1);
+        z-index: 10;
+    }
+
+    .project-name {
+        font-size: 0.9rem;
+        line-height: 1.2;
+        max-width: 100%;
+    }
+
+    .carousel-button {
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
+    }
+
+    .carousel-button:hover,
+    .carousel-button:active {
+        transform: translateY(-50%);
+    }
+
+    .carousel-prev {
+        left: -2px;
+    }
+
+    .carousel-next {
+        right: -2px;
+    }
+
+    .carousel-counter {
+        bottom: -42px;
+    }
+
+    .view-more {
+        position: static;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .view-more-link {
+        width: auto;
+        max-width: 220px;
+        padding: 10px 14px;
+        font-size: 0.82rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 420px) {
+    :root {
+        --header-offset: 0px;
+    }
+
+    .brand {
+        gap: 10px;
+    }
+
+    .brand-title {
+        font-size: 1.2rem;
+    }
+
+    .brand-tagline {
+        display: none;
+    }
+
+    .site-nav {
+        justify-content: flex-start;
+    }
+
+    .banner-content .message h1 {
+        font-size: clamp(2rem, 11vw, 2.6rem);
+    }
+
+    .message p {
+        font-size: 1rem;
+    }
+
+    .carousel-slide {
+        width: min(98px, 28vw);
+    }
+
+    .carousel-slide.prev {
+        left: -2px;
+    }
+
+    .carousel-slide.next {
+        right: -2px;
+    }
+
+    .carousel-slide.active {
+        width: min(136px, 40vw);
+    }
+
+    .carousel-slide img {
+        height: 150px;
+    }
+
+    .carousel-button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .project-name {
+        font-size: 0.82rem;
     }
 }
