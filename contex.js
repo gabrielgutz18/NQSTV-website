@@ -3,24 +3,45 @@ const menuButton = document.querySelector('.menu-button');
 const dropdownContent = document.querySelector('.dropdown-content');
 
 if (menuButton && dropdownContent) {
+    const closeDropdown = () => {
+        dropdownContent.classList.remove('active');
+        menuButton.setAttribute('aria-expanded', 'false');
+    };
+
+    const openDropdown = () => {
+        dropdownContent.classList.add('active');
+        menuButton.setAttribute('aria-expanded', 'true');
+    };
+
     menuButton.addEventListener('click', (e) => {
         e.stopPropagation();
-        dropdownContent.classList.toggle('active');
-        console.log('Menu toggled. Active:', dropdownContent.classList.contains('active'));
+
+        if (dropdownContent.classList.contains('active')) {
+            closeDropdown();
+        } else {
+            openDropdown();
+        }
     });
 
-    
     const dropdownLinks = dropdownContent.querySelectorAll('a');
     dropdownLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            dropdownContent.classList.remove('active');
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetUrl = new URL(link.getAttribute('href'), window.location.href);
+            closeDropdown();
+            window.location.href = targetUrl.href;
         });
     });
 
-   
     document.addEventListener('click', (e) => {
         if (!menuButton.contains(e.target) && !dropdownContent.contains(e.target)) {
-            dropdownContent.classList.remove('active');
+            closeDropdown();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeDropdown();
         }
     });
 }

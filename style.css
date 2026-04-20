@@ -164,6 +164,8 @@ main {
     display: flex;
     align-items: center;
     gap: 16px;
+    position: relative;
+    z-index: 2001;
 }
 
 .search-form {
@@ -240,10 +242,13 @@ main {
     border: 1px solid rgba(228, 138, 50, 0.3);
     border-radius: 8px;
     min-width: 200px;
+    max-height: min(320px, calc(100vh - 110px));
+    overflow-y: auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    z-index: 3000;
     margin-top: 8px;
     backdrop-filter: blur(10px);  /* Optional: adds glass effect */
+    pointer-events: auto;
 }
 
 .dropdown-content.active {
@@ -269,10 +274,6 @@ main {
     background-color: rgba(228, 138, 50, 0.2);
     color: var(--accent);
 }
-.header-actions {
-    position: relative;
-}
-
 .first.section.backgroung-image {
     min-height: clamp(360px, 52vw, 680px);
     width: 100vw;

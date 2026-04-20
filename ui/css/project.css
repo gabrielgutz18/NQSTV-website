@@ -18,7 +18,9 @@
 
 html,
 body {
+    overflow-x: hidden;
     overflow-y: auto;
+    max-width: 100%;
 }
 
 html {
@@ -36,9 +38,11 @@ body {
 
 .page-shell {
     width: 100%;
+    max-width: 100%;
     min-height: 100svh;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 main {
@@ -505,7 +509,9 @@ main {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin: 50px 80px;
+    margin: 50px 20px;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .project-icon {
