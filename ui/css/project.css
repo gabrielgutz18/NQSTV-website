@@ -569,17 +569,66 @@ main {
 /* Project Cards */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
     max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 40px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
+
+/* Reverted: no 2-column for other-projects */
+
+
+@media (max-width: 640px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 20px;
+        margin: 40px auto;
+    }
+}
+
+.Project-other.card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--surface-border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.Project-other.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 60px rgba(38, 28, 20, 0.16);
+    border-color: var(--accent);
+}
+
+.project-bullets {
+    list-style: disc inside;
+    padding: 0;
+    margin: 0;
+    color: #4f4135;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.project-bullets li {
+    margin-bottom: 12px;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+.project-bullets li:last-child {
+    margin-bottom: 0;
+}
+
 
 .project-card {
     background: var(--surface);
     border-radius: 16px;
-    padding: 32px;
+    padding: 24px;
     box-shadow: var(--shadow-soft);
     border: 1px solid var(--surface-border);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

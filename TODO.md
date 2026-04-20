@@ -1,11 +1,12 @@
-# Project Cards CSS Task
+# Undo Card Widening in Project Info - COMPLETE
 
-## Steps:
-- [x] Analyze files (ui/projectinfo.html has `.project-grid` + 4 `.project-card` articles)
-- [x] Add CSS to ui/css/project.css for responsive grid cards
-- [x] Update TODO.md
-- [x] Complete task
+## Steps from Approved Plan:
+1. [x] Update ui/css/project.css: Reduce .project-grid max-width to 900px, padding to 20px, margin to 40px.
+2. [x] Update ui/css/project.css: Remove .project-grid.other-projects 2-col rule.
+3. [x] Update ui/css/project.css: Reduce .project-card padding to 24px.
+4. [x] Verify layout: Open ui/projectinfo.html in browser.
+5. [x] Update TODO.md complete and cleanup.
 
-**Complete:** Responsive 2x2 project cards (1-column mobile) with hover effects, matching site theme. Cards have subtle shadows, rounded corners, accent hover border.
+Current progress: Task complete. Cards now narrower (max-width 900px, reduced padding/margins, single column).
 
-**Details:** 2x2 grid cards with project info (title, client, GIA, services list). Modern card design matching site theme (--surface, shadows, etc.).
+
