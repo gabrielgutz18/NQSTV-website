@@ -1,9 +1,11 @@
-# Task: Make Budgetary Cost Plans service-card clickable to Contract/1.html
+# Project Cards CSS Task
 
 ## Steps:
-- [x] 1. Edit index.html: Wrap Budgetary Cost Plans article in <a href="Contract/1.html" target="_blank" rel="noopener noreferrer">
+- [x] Analyze files (ui/projectinfo.html has `.project-grid` + 4 `.project-card` articles)
+- [x] Add CSS to ui/css/project.css for responsive grid cards
+- [x] Update TODO.md
+- [x] Complete task
 
-- [x] 2. Test in browser
-- [x] 3. Optional: Add CSS for link styling if needed
-- [x] 4. Complete task
+**Complete:** Responsive 2x2 project cards (1-column mobile) with hover effects, matching site theme. Cards have subtle shadows, rounded corners, accent hover border.
 
+**Details:** 2x2 grid cards with project info (title, client, GIA, services list). Modern card design matching site theme (--surface, shadows, etc.).
