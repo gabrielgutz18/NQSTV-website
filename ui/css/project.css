@@ -800,6 +800,7 @@ article p strong {
     width: 100%;
     box-sizing: border-box;
     height: 100%;
+    position: relative;
 }
 
 .flip-card-back .flip-back-content {
@@ -833,7 +834,65 @@ article p strong {
     padding: 0;
 }
 
-/* Modal Overlay */
+@media (max-width: 768px) {
+    .flip-card.active {
+        width: 90vw;
+        max-width: 100%;
+        max-height: 90vh;
+    }
+
+    .flip-card-back {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .flip-card-back .flip-back-content {
+        flex: 0 0 auto;
+        width: 100%;
+        padding: 20px;
+        max-height: 40vh;
+        overflow-y: auto;
+        padding-top: 60px;
+    }
+
+    .flip-card-back img {
+        width: 100%;
+        height: auto;
+        max-height: 45vh;
+        order: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .flip-card.active {
+        width: 95vw;
+        top: 50% !important;
+        left: 50% !important;
+        max-height: 95vh;
+    }
+
+    .flip-card-back .flip-back-content {
+        padding: 16px 14px;
+        padding-top: 50px;
+        max-height: 35vh;
+    }
+
+    .flip-card-back .flip-back-content h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .flip-card-back .flip-back-content p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .flip-card-back img {
+        max-height: 40vh;
+    }
+}
+
+
 .modal-overlay {
     display: none;
     position: fixed;
