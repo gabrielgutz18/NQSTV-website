@@ -58,6 +58,24 @@ a {
     overflow-x: hidden;
 }
 
+.page-shell.has-team-particles > :not(.team-particles) {
+    position: relative;
+    z-index: 1;
+}
+
+.team-particles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.team-particles canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
 main {
     flex: 1;
     display: block;
@@ -435,69 +453,71 @@ main {
 }
 
 /* ============================================
-   GLASSMORPHISM CARD GRID - STAFF DESIGN
+   ALTERNATING STAFF CARDS
    ============================================ */
 
-:root {
+.staff-grid {
     --glass-primary-color: #ff9603;
     --glass-primary-light: #d97409;
-    --glass-primary-dark: #000000;
+    --glass-primary-dark: #1a1a1a;
     --glass-bg: rgba(255, 255, 255, 0.08);
     --glass-border: rgba(255, 255, 255, 0.15);
-    --glass-text-primary: #1a1a1a;
     --glass-text-secondary: #666666;
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     --glass-shadow-hover: 0 20px 60px rgba(15, 118, 110, 0.2);
-}
-
-/* Grid Layout for Staff Cards */
-.staff-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
-    perspective: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 2.6vw, 26px);
     width: 100%;
-    padding: 2rem 0;
+    padding: 0.5rem 0 0;
 }
 
-/* Staff Card Container */
 .staff-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(128px, 18vw, 168px);
+    grid-template-areas: "content photo";
+    align-items: center;
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
     box-shadow: var(--glass-shadow);
-    animation: slideUp 0.6s ease-out backwards;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+    overflow: visible;
 }
 
-.staff-card:nth-child(1) { animation-delay: 0.1s; }
-.staff-card:nth-child(2) { animation-delay: 0.2s; }
-.staff-card:nth-child(3) { animation-delay: 0.3s; }
-.staff-card:nth-child(4) { animation-delay: 0.4s; }
-.staff-card:nth-child(5) { animation-delay: 0.5s; }
-.staff-card:nth-child(6) { animation-delay: 0.6s; }
-.staff-card:nth-child(7) { animation-delay: 0.7s; }
-.staff-card:nth-child(8) { animation-delay: 0.8s; }
-
 .staff-card:hover {
-    transform: translateY(-12px);
+    transform: translateY(-6px);
     box-shadow: var(--glass-shadow-hover);
-    border-color: rgba(255, 255, 255, 0.25);
     background: rgba(255, 255, 255, 0.12);
 }
 
-/* Image Container */
+.card-content {
+    grid-area: content;
+    min-height: clamp(138px, 19vw, 170px);
+    padding: clamp(16px, 2.4vw, 24px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .card-image-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-    overflow: hidden;
+    grid-area: photo;
+    width: clamp(128px, 18vw, 168px);
+    justify-self: end;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
     background: linear-gradient(135deg, var(--glass-primary-light), var(--glass-primary-color));
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    margin-left: -14px;
+    position: relative;
+    z-index: 2;
 }
 
 .card-image-container img {
@@ -505,30 +525,30 @@ main {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease-out;
+    transition: transform 0.45s ease, filter 0.45s ease;
 }
 
 .staff-card:hover .card-image-container img {
-    transform: scale(1.08) rotate(2deg);
-    filter: brightness(1.1);
+    transform: scale(1.05);
+    filter: brightness(1.08);
 }
 
-/* Card Content */
-.card-content {
-    padding: 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+.staff-card:nth-child(even) {
+    grid-template-columns: clamp(128px, 18vw, 168px) minmax(0, 1fr);
+    grid-template-areas: "photo content";
+}
+
+.staff-card:nth-child(even) .card-image-container {
+    justify-self: start;
+    margin-left: 0;
+    margin-right: -14px;
 }
 
 .card-content h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
+    margin: 0 0 6px;
     color: var(--glass-primary-dark);
-    margin-bottom: 0.3rem;
-    letter-spacing: -0.3px;
+    font-size: clamp(1.04rem, 2vw, 1.32rem);
+    line-height: 1.25;
     transition: color 0.3s ease;
 }
 
@@ -537,40 +557,27 @@ main {
 }
 
 .card-content > p:first-of-type {
-    font-size: 0.95rem;
-    font-weight: 600;
+    margin: 0 0 10px;
     color: var(--glass-primary-color);
-    margin-bottom: 0.8rem;
+    font-size: clamp(0.76rem, 1.2vw, 0.88rem);
+    font-weight: 700;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    opacity: 0.9;
     line-height: 1.35;
     overflow-wrap: anywhere;
 }
 
 .role-desc {
-    font-size: 0.9rem;
+    margin: 0;
     color: var(--glass-text-secondary);
-    line-height: 1.5;
-    margin-top: auto;
-    opacity: 0.85;
+    font-size: clamp(0.86rem, 1.3vw, 0.94rem);
+    line-height: 1.55;
+    opacity: 0.88;
     transition: opacity 0.3s ease;
 }
 
 .staff-card:hover .role-desc {
     opacity: 1;
-}
-
-/* Animations */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Sub Team Members Grid - Windowed Layout */
@@ -630,9 +637,7 @@ main {
     }
 
     .staff-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 2.25rem;
-        padding: 1.4rem 0;
+        gap: 20px;
     }
 }
 
@@ -643,26 +648,17 @@ main {
     }
 
     .staff-grid {
-        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-        gap: 1.6rem;
-        padding: 1rem 0;
+        gap: 16px;
+        padding: 0.3rem 0;
+    }
+
+    .card-image-container {
+        width: 120px;
     }
 
     .card-content {
-        padding: 1.1rem;
-    }
-
-    .card-content h3 {
-        font-size: 1.16rem;
-    }
-
-    .card-content > p:first-of-type {
-        font-size: 0.8rem;
-    }
-
-    .role-desc {
-        font-size: 0.86rem;
-        line-height: 1.45;
+        min-height: 124px;
+        padding: 14px;
     }
 
     .member-header {
@@ -1116,34 +1112,39 @@ main {
     }
 
     .staff-grid {
-        grid-template-columns: 1fr;
-        gap: 1.15rem;
-        padding: 0.8rem 0 0.25rem;
+        gap: 14px;
+        padding: 0.2rem 0 0;
     }
 
-    .staff-card {
-        border-radius: 14px;
+    .staff-card,
+    .staff-card:nth-child(even) {
+        grid-template-columns: 96px minmax(0, 1fr);
+        grid-template-areas: "photo content";
     }
 
-    .card-image-container {
-        aspect-ratio: 16 / 11;
+    .card-image-container,
+    .staff-card:nth-child(even) .card-image-container {
+        width: 96px;
+        margin: 0 -8px 0 0;
     }
 
     .card-content {
-        padding: 0.95rem;
+        min-height: 110px;
+        padding: 12px;
     }
 
     .card-content h3 {
-        font-size: 1.04rem;
+        font-size: 0.96rem;
     }
 
     .card-content > p:first-of-type {
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
+        font-size: 0.68rem;
+        margin-bottom: 8px;
     }
 
     .role-desc {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
+        line-height: 1.45;
     }
 
     .team-gallery,
@@ -1235,8 +1236,19 @@ main {
     }
 
     .staff-grid {
-        gap: 0.95rem;
-        padding-top: 0.55rem;
+        gap: 12px;
+        padding-top: 0.35rem;
+    }
+
+    .staff-card,
+    .staff-card:nth-child(even) {
+        grid-template-columns: 84px minmax(0, 1fr);
+    }
+
+    .card-image-container,
+    .staff-card:nth-child(even) .card-image-container {
+        width: 84px;
+        border-radius: 10px;
     }
 
     .card-content {

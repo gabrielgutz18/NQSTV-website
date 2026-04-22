@@ -5,37 +5,24 @@ function ensureTeamParticleHost() {
         return particleHost;
     }
 
-    const section = document.querySelector(".container");
-    if (!section) {
-        console.warn('Team particle container root ".container" was not found.');
+    const pageShell = document.querySelector(".page-shell") || document.body;
+    if (!pageShell) {
+        console.warn("Team particle root was not found.");
         return null;
     }
 
-    section.style.position = section.style.position || "relative";
-    section.style.overflow = section.style.overflow || "hidden";
-    section.style.isolation = section.style.isolation || "isolate";
-
-    const contentWrapper = document.createElement("div");
-    contentWrapper.className = "team-content";
-
-    while (section.firstChild) {
-        contentWrapper.appendChild(section.firstChild);
-    }
-
-    contentWrapper.style.position = "relative";
-    contentWrapper.style.zIndex = "1";
+    pageShell.classList.add("has-team-particles");
 
     particleHost = document.createElement("div");
     particleHost.id = "particles-js";
     particleHost.className = "team-particles";
     particleHost.setAttribute("aria-hidden", "true");
-    particleHost.style.position = "absolute";
+    particleHost.style.position = "fixed";
     particleHost.style.inset = "0";
     particleHost.style.zIndex = "0";
     particleHost.style.pointerEvents = "none";
 
-    section.appendChild(particleHost);
-    section.appendChild(contentWrapper);
+    pageShell.prepend(particleHost);
 
     return particleHost;
 }
