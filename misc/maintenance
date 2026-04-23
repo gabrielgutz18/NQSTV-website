@@ -4,3 +4,34 @@
             <p>We're currently updating our website. Please check back soon!</p>
         </div>
     </div>
+
+
+        <div class="carousel-slide">
+                                <img src="images/logo3d.png" alt="Project image 4" loading="lazy">
+                                <p class="project-name">example</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/logo3d.png" alt="Project image 4" loading="lazy">
+                                <p class="project-name">example</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/logo3d.png" alt="Project image 4" loading="lazy">
+                                <p class="project-name">example</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/logo3d.png" alt="Project image 4" loading="lazy">
+                                <p class="project-name">example</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/logo3d.png" alt="Project image 4" loading="lazy">
+                                <p class="project-name">example</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/logo3d.png" alt="Project image 4" loading="lazy">
+                                <p class="project-name">example</p>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="images/logo3d.png" alt="Project image 4" loading="lazy">
+                                <p class="project-name">example</p>
+                            </div>
