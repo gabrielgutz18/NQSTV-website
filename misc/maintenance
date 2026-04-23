@@ -6,7 +6,7 @@
     </div>
 
 
-        <div class="carousel-slide">
+                            <div class="carousel-slide">
                                 <img src="images/logo3d.png" alt="Project image 4" loading="lazy">
                                 <p class="project-name">example</p>
                             </div>
