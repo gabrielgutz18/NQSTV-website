@@ -65,13 +65,17 @@
                 
                 <div class="map-card">
                     <div class="map-container">
-                        <img src="img/map1.png" alt="Map showing the location of NQSTV office in Liliw, Laguna, Philippines" class="map-image" id="map-layer-1" draggable="false">
-                        <img src="img/map2.png" alt="Satellite view of NQSTV office in Liliw, Laguna, Philippines" class="map-image map-image2" id="map-layer-2" draggable="false">
-                        <button class="zoom-btn" id="zoom-in-btn" type="button" aria-label="Zoom in">+</button>
-                        <button class="satellite-btn" id="satellite-toggle" type="button" aria-label="Toggle satellite view">Satellite</button>
-                        <button class="zoom-out-btn" id="zoom-out-btn" type="button" aria-label="Zoom out">-</button>
+                        <iframe
+                            class="map-embed"
+                            title="Inquisitive office location on Google Maps"
+                            src="https://www.google.com/maps?q=14.1335244,121.4331195&z=17&output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen>
+                        </iframe>
                     </div>
-                    <p class="map-hint">Zoom in, then drag the map to explore the area on desktop or mobile.</p>
+                    <p class="map-hint">Live Google Map: use the map controls to zoom, pan, and switch views.</p>
+                    <a class="map-open-link" href="https://maps.app.goo.gl/ZzFgodQRDaFPgrfc6" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
                 </div>
             </div>
          </main>
@@ -187,7 +191,6 @@
         <script src="js/particle.js"></script>
         <script src="js/dropdown.js"></script>
 <script src="js/map-info-modal.js"></script>
-        <script src="js/map.js"></script>
     </body>
     
 </html>

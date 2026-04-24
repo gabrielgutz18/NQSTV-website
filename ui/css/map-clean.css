@@ -328,6 +328,16 @@ main {
     z-index: 2;
 }
 
+.map-embed {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: inherit;
+    display: block;
+}
+
 .zoom-btn,
 .zoom-out-btn,
 .satellite-btn {
@@ -462,6 +472,19 @@ main {
     font-size: 0.95rem;
     line-height: 1.5;
     text-align: left;
+}
+
+.map-open-link {
+    align-self: flex-start;
+    margin: 4px 4px 0;
+    color: #6b3f12;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.map-open-link:hover {
+    color: #e48a32;
+    text-decoration: underline;
 }
 
 .site-footer {
