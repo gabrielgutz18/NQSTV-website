@@ -104,3 +104,89 @@ if (prevBtn) {
 
 updateCarousel();
 console.log('Carousel initialized');
+
+const serviceCards = document.querySelectorAll('.services-section .service-card');
+const serviceModal = document.getElementById('service-card-modal');
+const serviceModalClose = document.querySelector('.service-modal-close');
+const serviceModalIcon = document.getElementById('service-modal-icon');
+const serviceModalTitle = document.getElementById('service-modal-title');
+const serviceModalDescription = document.getElementById('service-modal-description');
+const serviceModalInquire = document.getElementById('service-modal-inquire');
+
+if (
+    serviceCards.length > 0 &&
+    serviceModal &&
+    serviceModalClose &&
+    serviceModalIcon &&
+    serviceModalTitle &&
+    serviceModalDescription &&
+    serviceModalInquire
+) {
+    let lastFocusedCard = null;
+
+    const openServiceModal = (card) => {
+        const title = card.querySelector('h4')?.textContent?.trim() || 'Service';
+        const detail = card.dataset.viewDetail?.trim() || '';
+        const iconMarkup = card.querySelector('.service-icon')?.innerHTML || '';
+
+        serviceModalTitle.textContent = title;
+        serviceModalDescription.textContent = detail;
+        serviceModalDescription.hidden = detail.length === 0;
+        serviceModalIcon.innerHTML = iconMarkup;
+
+        serviceModal.classList.add('active');
+        serviceModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('service-modal-open');
+
+        lastFocusedCard = card;
+        serviceModalClose.focus();
+    };
+
+    const closeServiceModal = () => {
+        serviceModal.classList.remove('active');
+        serviceModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('service-modal-open');
+
+        if (lastFocusedCard) {
+            lastFocusedCard.focus();
+        }
+    };
+
+    serviceCards.forEach((card) => {
+        const title = card.querySelector('h4')?.textContent?.trim() || 'service';
+
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `Open details for ${title}`);
+
+        card.addEventListener('click', () => {
+            openServiceModal(card);
+        });
+
+        card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openServiceModal(card);
+            }
+        });
+    });
+
+    serviceModalClose.addEventListener('click', closeServiceModal);
+
+    serviceModalInquire.addEventListener('click', () => {
+        closeServiceModal();
+        window.location.href = '#contact';
+    });
+
+    serviceModal.addEventListener('click', (event) => {
+        if (event.target instanceof HTMLElement && event.target.matches('[data-close-service-modal="true"]')) {
+            closeServiceModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && serviceModal.classList.contains('active')) {
+            closeServiceModal();
+        }
+    });
+}

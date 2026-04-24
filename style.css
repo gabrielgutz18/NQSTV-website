@@ -494,11 +494,18 @@ main {
     border-radius: 16px;
     box-shadow: none;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .service-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 18px rgba(31, 23, 17, 0.12);
+    border-color: var(--accent);
+}
+
+.service-card:focus-visible {
+    outline: 3px solid rgba(228, 138, 50, 0.42);
+    outline-offset: 2px;
     border-color: var(--accent);
 }
 
@@ -553,6 +560,133 @@ main {
 
 .service-card-link .service-icon {
     pointer-events: none;
+}
+
+.service-modal-open {
+    overflow: hidden;
+}
+
+.service-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 4000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(16px, 4vw, 28px);
+}
+
+.service-modal.active {
+    display: flex;
+}
+
+.service-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(19, 14, 10, 0.62);
+    backdrop-filter: blur(2px);
+}
+
+.service-modal-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(520px, 100%);
+    padding: 28px 24px 24px;
+    background: #fffaf4;
+    border: 1px solid rgba(53, 43, 33, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 22px 54px rgba(25, 18, 13, 0.34);
+    animation: serviceModalIn 0.22s ease-out;
+}
+
+.service-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #2f2925;
+    color: #ffffff;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.service-modal-close:hover {
+    background: #201c19;
+}
+
+.service-modal-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    background: #312b29;
+    color: #ffffff;
+}
+
+.service-modal-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.service-modal h4 {
+    margin: 0 0 10px;
+    color: #1f1814;
+    font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.service-modal p {
+    margin: 0;
+    color: #3d2f24;
+    line-height: 1.6;
+}
+
+.service-modal-inquire {
+    margin-top: 16px;
+    align-self: flex-start;
+    width: fit-content;
+    padding: 7px 14px;
+    border: 0;
+    border-radius: 999px;
+    background: #e48a32;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.service-modal-inquire:hover {
+    background: #cf7721;
+}
+
+.service-modal-inquire:active {
+    transform: translateY(1px);
+}
+
+.service-modal-inquire:focus-visible {
+    outline: 3px solid rgba(228, 138, 50, 0.32);
+    outline-offset: 2px;
+}
+
+@keyframes serviceModalIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 /* Contact section */
