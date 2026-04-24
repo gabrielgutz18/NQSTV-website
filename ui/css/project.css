@@ -728,6 +728,64 @@ main {
     margin-bottom: 0;
 }
 
+.minor-carousel-shell {
+    margin-top: clamp(24px, 3vw, 34px);
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 245, 231, 0.16);
+}
+
+.minor-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 14px 0;
+    touch-action: pan-y;
+    cursor: grab;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.minor-carousel.is-dragging {
+    cursor: grabbing;
+}
+
+.minor-carousel-track {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.6vw, 18px);
+    will-change: transform;
+}
+
+.minor-carousel-item {
+    margin: 0;
+    flex: 0 0 clamp(160px, 19vw, 230px);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 238, 218, 0.2);
+    background: rgba(38, 30, 24, 0.7);
+    opacity: 0.72;
+    transform: scale(0.93);
+    filter: saturate(0.86);
+    transition: transform 0.32s ease, opacity 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease, filter 0.32s ease;
+}
+
+.minor-carousel-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.minor-carousel-item.is-center {
+    opacity: 1;
+    transform: scale(1.07);
+    filter: saturate(1);
+    border-color: rgba(255, 193, 129, 0.86);
+    box-shadow: 0 16px 34px rgba(8, 4, 2, 0.45);
+}
+
 .project-card {
     background: var(--surface);
     border-radius: 16px;
@@ -1026,6 +1084,19 @@ article p strong {
         line-height: 1.55;
     }
 
+    .minor-carousel {
+        padding: 10px 0;
+    }
+
+    .minor-carousel-item {
+        flex-basis: clamp(144px, 34vw, 210px);
+        border-radius: 14px;
+    }
+
+    .minor-carousel-item.is-center {
+        transform: scale(1.04);
+    }
+
     .project-card h4 {
         margin-bottom: 16px;
     }
@@ -1083,5 +1154,26 @@ article p strong {
 
     .project-bullets li {
         padding-left: 24px;
+    }
+
+    .minor-carousel-shell {
+        margin-top: 20px;
+        padding-top: 12px;
+    }
+
+    .minor-carousel-item {
+        flex-basis: 140px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .minor-carousel[data-respect-motion="true"] .minor-carousel-track {
+        transform: none !important;
+    }
+
+    .minor-carousel[data-respect-motion="true"] .minor-carousel-item,
+    .minor-carousel[data-respect-motion="true"] .minor-carousel-item.is-center {
+        transition: none;
+        transform: none;
     }
 }
