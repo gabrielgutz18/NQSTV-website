@@ -651,11 +651,13 @@ main {
 }
 
 .Project-other.card {
-    background: var(--surface);
-    border-radius: 16px;
-    padding: clamp(20px, 3vw, 32px);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid var(--surface-border);
+    background:
+        radial-gradient(circle at 12% 16%, rgba(255, 179, 103, 0.12), transparent 34%),
+        linear-gradient(145deg, #2a221c 0%, #1f1915 55%, #191411 100%);
+    border-radius: 34px;
+    padding: clamp(26px, 4vw, 40px);
+    box-shadow: 0 26px 56px rgba(20, 13, 9, 0.34);
+    border: 1px solid rgba(255, 245, 231, 0.1);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -664,11 +666,27 @@ main {
     min-width: 0;
 }
 
+.other-project-title {
+    margin: 0;
+    color: #fff7ec;
+    font-size: clamp(1.65rem, 3.4vw, 2.05rem);
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+}
+
+.other-project-intro {
+    margin: 14px 0 24px;
+    color: rgba(255, 241, 225, 0.92);
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    line-height: 1.65;
+    max-width: 70ch;
+}
+
 @media (hover: hover) and (pointer: fine) {
     .Project-other.card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 28px 60px rgba(38, 28, 20, 0.16);
-        border-color: var(--accent);
+        transform: translateY(-6px);
+        box-shadow: 0 30px 62px rgba(17, 11, 8, 0.42);
+        border-color: rgba(255, 204, 145, 0.45);
     }
 
     .project-card:hover {
@@ -679,17 +697,31 @@ main {
 }
 
 .project-bullets {
-    list-style: disc;
-    list-style-position: outside;
-    padding-left: 1.2rem;
+    list-style: none;
+    padding: 0;
     margin: 0;
-    color: #4f4135;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    color: rgba(255, 245, 234, 0.95);
+    font-size: clamp(0.95rem, 1.2vw, 1.06rem);
+    line-height: 1.8;
 }
 
 .project-bullets li {
-    margin-bottom: 12px;
+    position: relative;
+    margin-bottom: 14px;
+    padding-left: 28px;
+}
+
+.project-bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e38a32;
+    box-shadow: 0 0 0 4px rgba(227, 138, 50, 0.18);
+    transform: translateY(-50%);
 }
 
 .project-bullets li:last-child {
@@ -986,7 +1018,12 @@ article p strong {
     .project-card,
     .Project-other.card {
         padding: 20px 16px;
-        border-radius: 18px;
+        border-radius: 24px;
+    }
+
+    .other-project-intro {
+        margin: 10px 0 18px;
+        line-height: 1.55;
     }
 
     .project-card h4 {
@@ -1041,5 +1078,10 @@ article p strong {
     .project-card,
     .Project-other.card {
         padding: 18px 14px;
+        border-radius: 20px;
+    }
+
+    .project-bullets li {
+        padding-left: 24px;
     }
 }
