@@ -148,8 +148,8 @@ main {
     gap: 18px;
     padding: 10px 22px;
     background: var(--header-bg);
-    border: 0;  /* Make sure this is 0 */
-    border-bottom: none;  /* Add this explicitly */
+    border: 0; 
+    border-bottom: none;  
     color: var(--text-light);
 }
 
