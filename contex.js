@@ -1,7 +1,9 @@
 
 const menuButton = document.querySelector('.menu-button');
 const dropdownContent = document.querySelector('.dropdown-content');
+const siteNav = document.querySelector('.site-nav');
 
+// Handle dropdown menu for secondary menu (Mission Vision, Team, etc.)
 if (menuButton && dropdownContent) {
     const closeDropdown = () => {
         dropdownContent.classList.remove('active');
@@ -43,6 +45,17 @@ if (menuButton && dropdownContent) {
         if (e.key === 'Escape') {
             closeDropdown();
         }
+    });
+}
+
+// Close dropdown when navigation links are clicked
+if (siteNav && dropdownContent && menuButton) {
+    const navLinks = siteNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            dropdownContent.classList.remove('active');
+            menuButton.setAttribute('aria-expanded', 'false');
+        });
     });
 }
 
