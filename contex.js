@@ -322,3 +322,62 @@ featuredPostToggles.forEach((button) => {
         summary.classList.toggle('is-collapsed', isExpanded);
     });
 });
+
+const contactForm = document.querySelector('.contact-form');
+
+if (contactForm && window.emailjs) {
+    const EMAILJS_CONFIG = {
+        publicKey: 'kv8lqdqRMoOoJwetf',
+        serviceId: 'service_jt71ut4',
+        templateId: 'template_54thxm5'
+    };
+
+    const hasConfigValues =
+        EMAILJS_CONFIG.publicKey !== 'PASTE_YOUR_PUBLIC_KEY_HERE' &&
+        EMAILJS_CONFIG.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE';
+
+    if (hasConfigValues) {
+        emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton ? submitButton.textContent : '';
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+            }
+
+            const templateParams = {
+                name: contactForm.name.value.trim(),
+                email: contactForm.email.value.trim(),
+                phone: contactForm.phone.value.trim(),
+                service: contactForm.service.value,
+                message: contactForm.message.value.trim()
+            };
+
+            try {
+                await emailjs.send(
+                    EMAILJS_CONFIG.serviceId,
+                    EMAILJS_CONFIG.templateId,
+                    templateParams
+                );
+
+                alert('Message sent successfully.');
+                contactForm.reset();
+            } catch (error) {
+                console.error('EmailJS send failed:', error);
+                alert('Failed to send message. Please try again later.');
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                }
+            }
+        });
+    } else {
+        console.warn('EmailJS is not active yet. Add your public key and service ID in contex.js.');
+    }
+}
