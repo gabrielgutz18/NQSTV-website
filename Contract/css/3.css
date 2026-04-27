@@ -34,6 +34,49 @@ body {
     color: #1f1a16;
 }
 
+/* Global Heading Styles - Consistent across all pages */
+h1 {
+    margin: 0.67em 0;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    margin: 0.75em 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h3 {
+    margin: 0.83em 0;
+    font-size: 1.17rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h4 {
+    margin: 1em 0;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+h5 {
+    margin: 1.17em 0;
+    font-size: 0.83rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+h6 {
+    margin: 1.33em 0;
+    font-size: 0.67rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
 .page-shell {
     width: 100%;
     min-height: 100svh;
