@@ -203,3 +203,122 @@ if (
         }
     });
 }
+
+const featuredPostCards = document.querySelectorAll('.featured-post-card[data-post-url], .featured-post-card[data-preview-image]');
+const featuredImageButtons = document.querySelectorAll('.featured-post-image-button[data-full-image]');
+const featuredPostToggles = document.querySelectorAll('.featured-post-toggle[aria-controls]');
+const featuredImageModal = document.getElementById('featured-image-modal');
+const featuredImagePreview = document.getElementById('featured-image-preview');
+const featuredImageClose = document.querySelector('.image-viewer-close');
+
+if (
+    featuredPostCards.length > 0 &&
+    featuredImageButtons.length > 0 &&
+    featuredImageModal &&
+    featuredImagePreview &&
+    featuredImageClose
+) {
+    const openFeaturedImageModal = (imageSrc, imageAlt) => {
+        featuredImagePreview.src = imageSrc;
+        featuredImagePreview.alt = imageAlt;
+        featuredImageModal.classList.add('active');
+        featuredImageModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('service-modal-open');
+        featuredImageClose.focus();
+    };
+
+    const closeFeaturedImageModal = () => {
+        featuredImageModal.classList.remove('active');
+        featuredImageModal.setAttribute('aria-hidden', 'true');
+        featuredImagePreview.src = '';
+        featuredImagePreview.alt = '';
+        document.body.classList.remove('service-modal-open');
+    };
+
+    featuredPostCards.forEach((card) => {
+        const postUrl = card.dataset.postUrl?.trim();
+        const previewImage = card.dataset.previewImage?.trim();
+        const previewAlt = card.dataset.previewAlt?.trim() || 'Featured post image';
+
+        if (!postUrl && !previewImage) {
+            return;
+        }
+
+        card.addEventListener('click', (event) => {
+            const target = event.target;
+
+            if (
+                target instanceof HTMLElement &&
+                (target.closest('.featured-post-image-button') || target.closest('.featured-post-link'))
+            ) {
+                return;
+            }
+
+            if (postUrl) {
+                window.location.href = postUrl;
+                return;
+            }
+
+            if (previewImage) {
+                openFeaturedImageModal(previewImage, previewAlt);
+            }
+        });
+
+        card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+
+                if (postUrl) {
+                    window.location.href = postUrl;
+                    return;
+                }
+
+                if (previewImage) {
+                    openFeaturedImageModal(previewImage, previewAlt);
+                }
+            }
+        });
+    });
+
+    featuredImageButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            openFeaturedImageModal(
+                button.dataset.fullImage,
+                button.dataset.imageAlt || 'Featured post image'
+            );
+        });
+    });
+
+    featuredImageClose.addEventListener('click', closeFeaturedImageModal);
+
+    featuredImageModal.addEventListener('click', (event) => {
+        if (event.target instanceof HTMLElement && event.target.matches('[data-close-image-modal="true"]')) {
+            closeFeaturedImageModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && featuredImageModal.classList.contains('active')) {
+            closeFeaturedImageModal();
+        }
+    });
+}
+
+featuredPostToggles.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();
+
+        const summaryId = button.getAttribute('aria-controls');
+        const summary = summaryId ? document.getElementById(summaryId) : null;
+
+        if (!summary) {
+            return;
+        }
+
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!isExpanded));
+        button.textContent = isExpanded ? 'View more' : 'View less';
+        summary.classList.toggle('is-collapsed', isExpanded);
+    });
+});
