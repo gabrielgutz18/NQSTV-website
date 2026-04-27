@@ -259,7 +259,7 @@ main {
 }
 
 .menu-button {
-    display: none;
+    display: grid;
     align-content: space-between;
     width: 24px;
     height: 20px;
