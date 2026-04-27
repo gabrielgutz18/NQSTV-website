@@ -2292,6 +2292,57 @@ main {
     line-height: 1.55;
 }
 
+.support-chat-fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 3200;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 60px;
+    padding: 10px 18px 10px 12px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #e48a32, #b85f16);
+    box-shadow: 0 16px 34px rgba(120, 63, 15, 0.28);
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.support-chat-fab:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 38px rgba(120, 63, 15, 0.34);
+    background: linear-gradient(135deg, #ef9a46, #c86f24);
+}
+
+.support-chat-fab:focus-visible {
+    outline: 3px solid rgba(38, 35, 31, 0.24);
+    outline-offset: 4px;
+}
+
+.support-chat-fab__icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+}
+
+.support-chat-fab__icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.support-chat-fab__label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
 @media (max-width: 900px) {
     .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -2345,6 +2396,23 @@ main {
     .footer-legal-item:hover .footer-legal-card,
     .footer-legal-item:focus-within .footer-legal-card {
         transform: translateX(-50%) translateY(0);
+    }
+
+    .support-chat-fab {
+        right: 16px;
+        bottom: 16px;
+        min-height: 54px;
+        padding: 9px 14px 9px 10px;
+        gap: 10px;
+    }
+
+    .support-chat-fab__icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .support-chat-fab__label {
+        font-size: 0.88rem;
     }
 }
 
@@ -2733,6 +2801,17 @@ video {
         padding: 10px 14px;
         font-size: 0.82rem;
         text-align: center;
+    }
+
+    .support-chat-fab {
+        right: 12px;
+        bottom: 12px;
+        min-height: 52px;
+        padding: 8px 12px 8px 9px;
+    }
+
+    .support-chat-fab__label {
+        display: none;
     }
 }
 
