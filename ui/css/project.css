@@ -1253,6 +1253,7 @@ main {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     box-shadow: 0 10px 18px rgba(22, 15, 10, 0.18);
+    z-index: 2;
 }
 
 .flip-card-front {
