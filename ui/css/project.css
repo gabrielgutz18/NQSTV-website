@@ -371,6 +371,7 @@ main {
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.92fr);
+    align-items: start;
     gap: clamp(24px, 4vw, 42px);
     padding: clamp(28px, 4vw, 42px);
     border-radius: 36px;
