@@ -324,6 +324,87 @@ featuredPostToggles.forEach((button) => {
 });
 
 const contactForm = document.querySelector('.contact-form');
+const contactMessageModal = document.getElementById('contact-message-modal');
+const contactMessageClose = document.querySelector('.contact-message-close');
+const contactMessageBadge = document.getElementById('contact-message-badge');
+const contactMessageTitle = document.getElementById('contact-message-title');
+const contactMessageText = document.getElementById('contact-message-text');
+const contactMessageAction = document.getElementById('contact-message-action');
+
+let lastFocusedContactElement = null;
+
+const contactMessageIcons = {
+    success: `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5"></path>
+        </svg>
+    `,
+    error: `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 8v5"></path>
+            <path d="M12 16h.01"></path>
+        </svg>
+    `
+};
+
+const openContactMessageModal = (variant, title, message, triggerElement) => {
+    if (
+        !contactMessageModal ||
+        !contactMessageClose ||
+        !contactMessageBadge ||
+        !contactMessageTitle ||
+        !contactMessageText ||
+        !contactMessageAction
+    ) {
+        return;
+    }
+
+    lastFocusedContactElement = triggerElement instanceof HTMLElement ? triggerElement : null;
+
+    contactMessageModal.classList.toggle('is-error', variant === 'error');
+    contactMessageBadge.innerHTML = contactMessageIcons[variant] || contactMessageIcons.success;
+    contactMessageTitle.textContent = title;
+    contactMessageText.textContent = message;
+    contactMessageAction.textContent = variant === 'error' ? 'Try Again' : 'Close';
+
+    contactMessageModal.classList.add('active');
+    contactMessageModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('contact-modal-open');
+
+    contactMessageAction.focus();
+};
+
+const closeContactMessageModal = () => {
+    if (!contactMessageModal) {
+        return;
+    }
+
+    contactMessageModal.classList.remove('active', 'is-error');
+    contactMessageModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('contact-modal-open');
+
+    if (lastFocusedContactElement) {
+        lastFocusedContactElement.focus();
+    }
+};
+
+if (contactMessageModal && contactMessageClose && contactMessageAction) {
+    contactMessageClose.addEventListener('click', closeContactMessageModal);
+    contactMessageAction.addEventListener('click', closeContactMessageModal);
+
+    contactMessageModal.addEventListener('click', (event) => {
+        if (event.target instanceof HTMLElement && event.target.matches('[data-close-contact-message="true"]')) {
+            closeContactMessageModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && contactMessageModal.classList.contains('active')) {
+            closeContactMessageModal();
+        }
+    });
+}
 
 if (contactForm && window.emailjs) {
     const EMAILJS_CONFIG = {
@@ -365,11 +446,21 @@ if (contactForm && window.emailjs) {
                     templateParams
                 );
 
-                alert('Message sent successfully.');
                 contactForm.reset();
+                openContactMessageModal(
+                    'success',
+                    'Message sent successfully',
+                    'Thank you for reaching out. We have received your message and will get back to you shortly.',
+                    submitButton
+                );
             } catch (error) {
                 console.error('EmailJS send failed:', error);
-                alert('Failed to send message. Please try again later.');
+                openContactMessageModal(
+                    'error',
+                    'Unable to send your message',
+                    'Something went wrong while sending your email. Please try again in a moment.',
+                    submitButton
+                );
             } finally {
                 if (submitButton) {
                     submitButton.disabled = false;

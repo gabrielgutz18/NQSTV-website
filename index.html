@@ -833,6 +833,22 @@ During the course of a project, the quantity surveyors for the contractor and th
         </div>
     </div>
 
+    <div class="contact-message-modal" id="contact-message-modal" aria-hidden="true">
+        <div class="contact-message-backdrop" data-close-contact-message="true"></div>
+        <div class="contact-message-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-message-title" aria-describedby="contact-message-text">
+            <button class="contact-message-close" type="button" aria-label="Close message popup">&times;</button>
+            <div class="contact-message-badge" id="contact-message-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+            </div>
+            <p class="contact-message-eyebrow">Contact Form</p>
+            <h4 id="contact-message-title">Message sent successfully</h4>
+            <p id="contact-message-text">Thank you for reaching out. We have received your message and will get back to you shortly.</p>
+            <button class="button-primary contact-message-action" type="button" id="contact-message-action">Close</button>
+        </div>
+    </div>
+
     <script type="text/javascript">
         window.$crisp = window.$crisp || [];
         window.CRISP_WEBSITE_ID = "ff804b92-b2a3-4163-9eb2-6fcae561efd8";

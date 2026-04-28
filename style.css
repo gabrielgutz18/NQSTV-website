@@ -1373,6 +1373,133 @@ main {
     min-height: 130px;
 }
 
+.contact-message-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 4200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(18px, 4vw, 28px);
+}
+
+.contact-message-modal.active {
+    display: flex;
+}
+
+.contact-message-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(28, 22, 17, 0.38);
+    backdrop-filter: blur(6px);
+}
+
+.contact-message-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(460px, 100%);
+    padding: clamp(1.5rem, 4vw, 2rem);
+    border: 1px solid rgba(67, 49, 28, 0.16);
+    border-radius: 28px;
+    background:
+        linear-gradient(160deg, rgba(255, 250, 244, 0.98), rgba(247, 241, 232, 0.98));
+    box-shadow: 0 24px 70px rgba(28, 20, 14, 0.28);
+    text-align: center;
+    animation: contactMessageIn 0.22s ease-out;
+}
+
+.contact-message-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: #2f2925;
+    color: #ffffff;
+    font-size: 1.55rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.contact-message-close:hover {
+    background: #1f1a16;
+}
+
+.contact-message-close:active {
+    transform: translateY(1px);
+}
+
+.contact-message-badge {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    background: linear-gradient(145deg, var(--accent), #c96f1f);
+    color: #ffffff;
+    box-shadow: 0 18px 30px rgba(228, 138, 50, 0.28);
+}
+
+.contact-message-badge svg {
+    width: 34px;
+    height: 34px;
+}
+
+.contact-message-eyebrow {
+    margin: 0 0 0.35rem;
+    color: #8a6f52;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.contact-message-dialog h4 {
+    margin: 0 0 0.6rem;
+    color: #1f1814;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+.contact-message-dialog p {
+    color: #4c3b2d;
+    line-height: 1.65;
+}
+
+.contact-message-action {
+    min-width: 150px;
+    margin-top: 1.1rem;
+}
+
+.contact-message-modal.is-error .contact-message-badge {
+    background: linear-gradient(145deg, #7e332d, #5f221d);
+    box-shadow: 0 18px 30px rgba(126, 51, 45, 0.24);
+}
+
+body.contact-modal-open {
+    overflow: hidden;
+}
+
+body.contact-modal-open .page-shell {
+    filter: blur(10px);
+    transition: filter 0.2s ease;
+}
+
+@keyframes contactMessageIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 @media (max-width: 900px) {
     .contact-grid {
         grid-template-columns: 1fr;
