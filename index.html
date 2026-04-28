@@ -9,7 +9,11 @@
     <link rel="icon" type="image/png" href="images/logonsqtv.png">
 </head>
 <body>
+    <div class ="loader">
+
+    </div>
     
+
     <div class="page-shell" id="home">
         <header class="site-header">
             <div class="brand">
@@ -844,6 +848,31 @@ During the course of a project, the quantity surveyors for the contractor and th
     <script src="contex.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
         <script src="ui/js/particle.js"></script>
+    <script>
+        (function () {
+            var loader = document.querySelector(".loader");
+            if (!loader) {
+                return;
+            }
+
+            var startTime = (window.performance && performance.now) ? performance.now() : Date.now();
+            var minVisibleMs = 700;
+
+            function hideLoader() {
+                loader.classList.add("is-hidden");
+                window.setTimeout(function () {
+                    loader.remove();
+                }, 350);
+            }
+
+            window.addEventListener("load", function () {
+                var now = (window.performance && performance.now) ? performance.now() : Date.now();
+                var elapsed = now - startTime;
+                var delay = Math.max(0, minVisibleMs - elapsed);
+                window.setTimeout(hideLoader, delay);
+            });
+        })();
+    </script>
     
 </body>
 </html>
