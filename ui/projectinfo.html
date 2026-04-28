@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "Stylesheet" href="css/project.css">    
     <link rel = "Stylesheet" href="css/loader.css">
-    <title>Project Info</title>
+    <title>Project Portfolio</title>
     <link rel="icon" type="image/png" href="../images/logonsqtv.png">
 </head>
 <body>
@@ -53,8 +53,45 @@
              
             <main>
                 <div class ="loader"></div>
-         <section>
-               <div class="minor-carousel-shell" aria-label="Minor project highlights">
+         <section class="portfolio-section">
+                <div class="portfolio-hero">
+                    <div class="portfolio-hero-copy">
+                        <p class="section-kicker">Project Portfolio</p>
+                        <h1>Commercial clarity behind every build we support.</h1>
+                        <p class="portfolio-hero-lead">From retail, hospitality, and residential developments to specialist fit-outs and infrastructure support, our portfolio reflects disciplined cost planning, procurement guidance, and contract administration across multiple sectors.</p>
+
+                        <div class="portfolio-actions">
+                            <a class="portfolio-button portfolio-button-primary" href="#major-projects">Explore major projects</a>
+                            <a class="portfolio-button portfolio-button-secondary" href="#other-projects">See other works</a>
+                        </div>
+
+                        <div class="portfolio-hero-stats" aria-label="Portfolio highlights">
+                            <article class="portfolio-stat">
+                                <strong>19 major projects</strong>
+                                <span>Selected engagements presented with core client, area, and service information.</span>
+                            </article>
+                            <article class="portfolio-stat">
+                                <strong>30+ additional works</strong>
+                                <span>Supporting commissions across interiors, institutional spaces, utilities, and specialist renovations.</span>
+                            </article>
+                            <article class="portfolio-stat">
+                                <strong>End-to-end support</strong>
+                                <span>Coverage spanning cost planning, tendering, procurement, contract documentation, and post-contract work.</span>
+                            </article>
+                        </div>
+                    </div>
+
+                    <aside class="portfolio-hero-panel" aria-label="Portfolio highlights">
+                        <div class="portfolio-panel-header">
+                            <div>
+                                <p class="section-kicker">Highlighted Work</p>
+                                <h2>Selected project snapshots</h2>
+                            </div>
+                            <span class="portfolio-panel-badge">Live portfolio</span>
+                        </div>
+                        <p class="portfolio-panel-text">A quick visual sweep of featured developments and supporting works across the portfolio.</p>
+
+                        <div class="minor-carousel-shell" aria-label="Minor project highlights">
                             <div class="minor-carousel" data-speed="22">
                                 <div class="minor-carousel-track">
                                     <figure class="minor-carousel-item">
@@ -123,11 +160,32 @@
                                 </div>
                             </div>
                         </div>
+                    </aside>
+                </div>
+
+                <div class="portfolio-overview" aria-label="Portfolio approach">
+                    <article class="overview-card">
+                        <p class="overview-label">Sector Range</p>
+                        <h3>Commercial, residential, hospitality, industrial, and civic work.</h3>
+                        <p>Our portfolio brings together large-scale developments and smaller specialist engagements under the same cost-conscious project discipline.</p>
+                    </article>
+                    <article class="overview-card">
+                        <p class="overview-label">What You'll See</p>
+                        <h3>Clear project summaries designed for quick scanning.</h3>
+                        <p>Each major project card surfaces the client, scale, and service scope first, then expands into a focused visual brief when opened.</p>
+                    </article>
+                    <article class="overview-card">
+                        <p class="overview-label">Working Style</p>
+                        <h3>Structured commercial input from planning through delivery.</h3>
+                        <p>We support decision-making with practical estimates, procurement guidance, documentation, and contract management tailored to project stage.</p>
+                    </article>
+                </div>
+
             <div class ="project-shell">
                         <h1>Proven Track Record</h1>
-                        <p>Explore our diverse range of projects, showcasing our expertise in cost and contract training, consultancy services, and successful collaborations with clients across various industries.</p>
+                        <p>Explore a cross-section of projects that demonstrate how cost certainty, procurement strategy, and disciplined contract support translate into real delivery outcomes.</p>
                     </div>
-                <div class="major-project-section">
+                <div class="major-project-section" id="major-projects">
                     <div class ="project-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="5" y="3.5" width="14" height="17" rx="2"></rect>
@@ -138,7 +196,11 @@
                             <line x1="13" y1="16" x2="16" y2="16"></line>
                         </svg>
                     </div>
-                    <div class="Project-record">Major Projects</div>
+                    <div class="section-heading-copy">
+                        <p class="section-kicker">Selected Work</p>
+                        <div class="Project-record">Major Projects</div>
+                        <p class="project-section-intro">Open any card to view a larger visual and a more focused project brief.</p>
+                    </div>
                 </div>
 
             <div class ="project-grid">
@@ -517,7 +579,7 @@
                 </article>
             </div>
 
-            <div class="major-project-section">
+            <div class="major-project-section" id="other-projects">
                     <div class ="project-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="5" y="3.5" width="14" height="17" rx="2"></rect>
@@ -528,13 +590,23 @@
                             <line x1="13" y1="16" x2="16" y2="16"></line>
                         </svg>
                     </div>
-                    <div class="Project-record">Other Projects</div>
+                    <div class="section-heading-copy">
+                        <p class="section-kicker">Extended Portfolio</p>
+                        <div class="Project-record">Other Projects</div>
+                        <p class="project-section-intro">Additional commissions that reflect the breadth of our day-to-day estimating, documentation, and advisory work.</p>
+                    </div>
                 </div>
 
                 <div class="project-grid other-projects">
                     <article class="Project-other card">
-                        <h3 class="other-project-title">Minor Projects</h3>
-                        <p class="other-project-intro"></p>
+                        <div class="other-project-header">
+                            <div>
+                                <p class="section-kicker">Supporting Work</p>
+                                <h3 class="other-project-title">Minor Projects</h3>
+                            </div>
+                            <span class="other-project-badge">30+ listed works</span>
+                        </div>
+                        <p class="other-project-intro">Beyond the featured major developments, these additional assignments show the range of sectors, building types, and commercial support services handled across the practice.</p>
                         <ul class="project-bullets">
                             <li>Ford Service Center and Office, BGC - Detailed Cost Plan and Pre-tender estimate</li>
                             <li>Araneta Center Underground Utilities, Cubao - Pre-tender estimate and Tender Evaluation</li>
