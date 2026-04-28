@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
   modal.appendChild(closeBtn);
   document.body.appendChild(modal);
   
-  // Open modal
+
   infoImages.forEach(img => {
     img.style.cursor = 'pointer';
     img.addEventListener('click', function() {
