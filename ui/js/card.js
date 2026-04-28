@@ -15,6 +15,25 @@ function closeActiveCard() {
 document.addEventListener('DOMContentLoaded', function() {
     const flipCards = document.querySelectorAll('.flip-card');
     const modalOverlay = document.querySelector('.modal-overlay');
+    const flipBackContents = document.querySelectorAll('.flip-back-content');
+
+    flipBackContents.forEach(content => {
+        if (content.querySelector('.flip-back-brand')) {
+            return;
+        }
+
+        const brand = document.createElement('div');
+        brand.className = 'flip-back-brand';
+        brand.innerHTML = `
+            <img src="../images/logonsqtv.png" alt="NQSTV Logo" loading="lazy">
+            <div class="flip-back-brand-copy">
+                <div class="flip-back-brand-title">i<span class="brand-accent">NQ</span>ui<span class="brand-accent">S</span>i<span class="brand-accent">T</span>i<span class="brand-accent">V</span>e</div>
+                <div class="flip-back-brand-tagline">NQSTV Cost and Contract Training and Consultancy Services</div>
+            </div>
+        `;
+
+        content.prepend(brand);
+    });
 
     flipCards.forEach(card => {
         card.addEventListener('click', function(e) {
