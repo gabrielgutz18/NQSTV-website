@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const flipCards = document.querySelectorAll('.flip-card');
     const modalOverlay = document.querySelector('.modal-overlay');
     const flipBackContents = document.querySelectorAll('.flip-back-content');
+    const flipCardBacks = document.querySelectorAll('.flip-card-back');
 
     flipBackContents.forEach(content => {
         if (content.querySelector('.flip-back-brand')) {
@@ -50,6 +51,24 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
 
         content.prepend(brand);
+    });
+
+    flipCardBacks.forEach(back => {
+        if (back.querySelector('.flip-card-close')) {
+            return;
+        }
+
+        const closeButton = document.createElement('button');
+        closeButton.type = 'button';
+        closeButton.className = 'flip-card-close';
+        closeButton.setAttribute('aria-label', 'Close project details');
+        closeButton.innerHTML = '&times;';
+        closeButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeActiveCard();
+        });
+
+        back.appendChild(closeButton);
     });
 
     flipCards.forEach(card => {
