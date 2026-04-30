@@ -1035,12 +1035,17 @@ main {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 240px));
-    gap: clamp(16px, 2.4vw, 20px);
+    gap: clamp(24px, 3vw, 32px);
     margin: 0 auto clamp(24px, 4vw, 40px);
     padding: 0;
     align-items: stretch;
     justify-content: center;
     max-width: 1080px;
+}
+
+.project-grid.other-projects {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 100%;
 }
 
 .Project-other.card {
