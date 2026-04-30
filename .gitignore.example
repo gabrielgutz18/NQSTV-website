@@ -1,0 +1,24 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Editor settings
+.vscode/
+!.vscode/extensions.json
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# Common dependency/build folders
+node_modules/
+dist/
+build/
+coverage/
