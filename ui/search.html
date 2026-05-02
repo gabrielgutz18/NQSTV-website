@@ -52,10 +52,22 @@
              
             <main>
                 <div class="loader"></div>
-                <section>
-                    <div class ="project-shell">
-                        <h1>service 1</h1>
-                        <p>sample text</p>
+                <section class="search-hero">
+                    <div class="search-shell">
+                        <p class="section-kicker">Site Search</p>
+                        <h1 id="search-heading">Browse UI Pages</h1>
+                        <p class="search-lead" id="search-query">Search across mission, team, projects, map, and developers from one page.</p>
+                    </div>
+                </section>
+
+                <section class="search-results-section">
+                    <div class="search-shell">
+                        <div class="search-summary-bar">
+                            <p id="search-summary">Loading search results...</p>
+                        </div>
+
+                        <div id="search-empty" class="search-empty" hidden></div>
+                        <div id="search-results" class="search-results-list" aria-live="polite"></div>
                     </div>
                 </section>
             </main>
@@ -182,6 +194,7 @@
     <script src="js/loader.js"></script>
     <script src ="js/dropdown.js"></script>
     <script src ="js/particle.js"></script>
+    <script src="js/search.js"></script>
      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 </body>
