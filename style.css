@@ -718,7 +718,7 @@ main {
 }
 
 #banner-inquiry {
-    padding-top: 0 !important;
+    padding-top: calc(var(--header-offset) + 18px) !important;
     margin-top: 0 !important;
 }
 
@@ -3832,6 +3832,10 @@ body {
 }
 
 @media (max-width: 640px) {
+    #banner-inquiry {
+        padding-top: 32px !important;
+    }
+
     .banner-content .message {
         padding: 20px 18px;
     }
