@@ -16,6 +16,8 @@ function closeActiveCard() {
         }
 
         const savedScrollY = Number(document.body.dataset.modalScrollY || 0);
+        const root = document.documentElement;
+        const previousScrollBehavior = root.style.scrollBehavior;
         document.documentElement.classList.remove('card-modal-open');
         document.body.classList.remove('card-modal-open');
         document.body.style.position = '';
@@ -25,7 +27,17 @@ function closeActiveCard() {
         document.body.style.width = '';
         document.body.style.overflow = '';
         delete document.body.dataset.modalScrollY;
-        window.scrollTo(0, savedScrollY);
+
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo({
+            top: savedScrollY,
+            left: 0,
+            behavior: 'instant'
+        });
+        requestAnimationFrame(() => {
+            window.scrollTo(0, savedScrollY);
+            root.style.scrollBehavior = previousScrollBehavior;
+        });
     }
 }
 

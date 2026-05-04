@@ -1034,18 +1034,39 @@ main {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 240px));
-    gap: clamp(24px, 3vw, 32px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(28px, 3vw, 40px);
     margin: 0 auto clamp(24px, 4vw, 40px);
     padding: 0;
     align-items: stretch;
     justify-content: center;
-    max-width: 1080px;
+    max-width: 1180px;
 }
 
 .project-grid.other-projects {
     grid-template-columns: minmax(0, 1fr);
     max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 860px;
+    }
+}
+
+@media (max-width: 760px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 580px;
+    }
+}
+
+@media (max-width: 520px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+    }
 }
 
 .Project-other.card {
@@ -1820,7 +1841,7 @@ article p strong {
     }
 
     .project-grid {
-        gap: 18px;
+        gap: 24px;
     }
 
     .project-card,
